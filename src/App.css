@@ -8,14 +8,20 @@ body {
 
 .navbar {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-content: center;
   padding: 0 2rem;
   background-color: #1f4068;
   color: white;
+  height: 58px;
 }
 
-.navbar #logo {
+.navbar .title {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.navbar .logo {
   display: flex;
   align-items: center;
   font-weight: bold;
@@ -25,4 +31,34 @@ body {
 .navbar #logoImg {
   width: 50px;
   height: 50px;
+  border-bottom: 4px solid white;
+  border-top: 4px solid white;
+  border-right: 4px solid #1f4068;
+  border-left: 4px solid #1f4068;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  font-size: 14px;
+}
+
+.navbar ul li {
+  padding: 0 1rem;
+  align-content: center;
+}
+
+.navbar ul li #avatarImg {
+  border-radius: 100%;
+  width: 35px;
+  height: 35px;
+  margin-right: 1rem;
+}
+
+.navbar ul li #avatar #avatarText {
+  display: flex;
+  flex-direction: column;
+  letter-spacing: normal;
 }
