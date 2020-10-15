@@ -62,3 +62,28 @@ body {
   flex-direction: column;
   letter-spacing: normal;
 }
+
+.navbar ul li Button {
+  border-color: white;
+  color: white;
+}
+
+.navbar ul li Button:hover {
+  background-color: white;
+  color: #e43f5a;
+  font-weight: bold;
+}
+
+.leftpanel {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+.leftpanel ul {
+  list-style: none;
+}
+
+.leftpanel ul li {
+  padding: 1rem 0;
+}
