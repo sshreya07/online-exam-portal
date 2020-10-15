@@ -78,12 +78,23 @@ body {
   display: flex;
   flex-direction: column;
   align-content: space-around;
+  /* background-color: transparent; */
+  width: 15rem;
+  height: 45rem;
 }
 
 .leftpanel ul {
   list-style: none;
+  font-size: 10px;
 }
 
 .leftpanel ul li {
   padding: 1rem 0;
+  font-size: 16px;
+}
+
+.leftpanel ul li:hover {
+  /* background-color: #1f4068; */
+  border-color: #1f4068;
+  color: white;
 }
