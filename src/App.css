@@ -93,8 +93,13 @@ body {
   font-size: 16px;
 }
 
-.leftpanel ul li:hover {
-  /* background-color: #1f4068; */
-  border-color: #1f4068;
-  color: white;
+.leftpanel ul li a {
+  text-decoration: none;
+  color: black;
+}
+
+.leftpanel ul li a:hover {
+  background-color: #1f4068;
+  /* border-color: #1f4068; */
+  color: #1f4068;
 }
