@@ -86,12 +86,18 @@ body {
 
 .leftpanel ul {
   list-style: none;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .leftpanel ul li {
   padding: 1rem 0;
   font-size: 16px;
+}
+
+.leftpanel ul li Button {
+  padding: 1rem 4rem;
+  font-variant: normal;
+  font-family: Raleway;
 }
 
 .leftpanel ul li a {
