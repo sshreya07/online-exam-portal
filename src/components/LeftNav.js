@@ -7,16 +7,13 @@ const LeftNav = () => {
             <ul>
                 <li><Button variant="contained">Dashboard</Button></li>
             </ul>
-            <ul>Student
-                <li><Button variant="contained">Attend Exams</Button></li>
+            <ul>Personal
+                <li><Button variant="contained">Exams</Button></li>
                 <li><Button variant="contained">Profile</Button></li>
-            </ul>
-            <ul>Teacher
-                <li><Button variant="contained">Schedule Exams</Button></li>
-                <li><Button variant="contained">Results</Button></li>
+
             </ul>
             <ul>Admin
-                <li><Button variant="contained">Account</Button></li>
+                <li><Button variant="contained">Users</Button></li>
             </ul>
       </div>
     )

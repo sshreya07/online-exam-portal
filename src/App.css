@@ -79,9 +79,10 @@ body {
   flex-direction: column;
   align-content: space-around;
   /* background-color: #1f4068; */
-  padding: 1rem 1rem 0 0;
+  padding: 2rem 1rem 0 0;
   width: 16rem;
   height: 45rem;
+  float: left;
 }
 
 .leftpanel ul {
@@ -106,7 +107,13 @@ body {
 
 .leftpanel ul li Button:hover {
   background-color: #1f4068;
-  border-color: white;
   color: white;
   border-radius: 2rem;
+}
+
+.workarea {
+  display: flex;
+  padding: 3rem 0 3rem 3rem;
+  height: auto;
+  width: auto;
 }
