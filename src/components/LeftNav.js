@@ -1,22 +1,22 @@
-import { Card, CardContent,Button } from '@material-ui/core'
+import { Button } from '@material-ui/core'
 import React from 'react';
 
 const LeftNav = () => {
     return (
         <div className="leftpanel">
             <ul>
-                <li><Button>Dashboard</Button></li>
+                <li><Button variant="contained">Dashboard</Button></li>
             </ul>
             <ul>Student
-                <li><Card><a href="/"><CardContent>Attend Exams</CardContent></a></Card></li>
-                <li><Card><a href="/"><CardContent>Profile</CardContent></a></Card></li>
+                <li><Button variant="contained">Attend Exams</Button></li>
+                <li><Button variant="contained">Profile</Button></li>
             </ul>
             <ul>Teacher
-                <li><Card><a href="/"><CardContent>Schedule Exams</CardContent></a></Card></li>
-                <li><Card><a href="/"><CardContent>Results</CardContent></a></Card></li>
+                <li><Button variant="contained">Schedule Exams</Button></li>
+                <li><Button variant="contained">Results</Button></li>
             </ul>
             <ul>Admin
-                <li><Card><a href="/"><CardContent>Account</CardContent></a></Card></li>
+                <li><Button variant="contained">Account</Button></li>
             </ul>
       </div>
     )

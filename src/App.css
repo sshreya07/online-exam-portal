@@ -79,8 +79,8 @@ body {
   flex-direction: column;
   align-content: space-around;
   /* background-color: #1f4068; */
-  padding-right: 1rem;
-  width: 15rem;
+  padding: 1rem 1rem 0 0;
+  width: 16rem;
   height: 45rem;
 }
 
@@ -90,24 +90,23 @@ body {
 }
 
 .leftpanel ul li {
-  padding: 1rem 0;
+  padding: 10px 0;
   font-size: 16px;
 }
 
 .leftpanel ul li Button {
-  padding: 1rem 4rem;
+  padding: 1rem 3rem;
+  width: 100%;
   font-variant: normal;
   font-family: Raleway;
+  text-transform: capitalize;
+  box-shadow: 0px 5px 10px 0px rgba(155, 155, 155, 0.5);
+  background-color: whitesmoke;
 }
 
-.leftpanel ul li a {
-  text-decoration: none;
-  color: black;
-  /* box-shadow: 0px 7px 10px 0px rgba(155, 155, 155, 0.85); */
-}
-
-.leftpanel ul li a:hover {
+.leftpanel ul li Button:hover {
   background-color: #1f4068;
-  /* border-color: #1f4068; */
-  color: rgb(0, 195, 255);
+  border-color: white;
+  color: white;
+  border-radius: 2rem;
 }
