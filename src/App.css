@@ -115,5 +115,14 @@ body {
   display: flex;
   padding: 3rem 0 3rem 3rem;
   height: auto;
-  width: auto;
+}
+
+.workarea Button {
+  border-color: #1f4068;
+  border-width: 3px;
+}
+
+.workarea Button:hover {
+  background-color: #1f4068;
+  color: white;
 }

@@ -7,7 +7,14 @@ import {
     useTheme,
     Box,
     Typography,
-    Breadcrumbs} from '@material-ui/core';
+    Breadcrumbs,
+  Paper,
+  Table,
+  TableHead,
+  TableBody,
+  TableRow,
+TableCell,
+Button} from '@material-ui/core';
 import SwipeableViews from 'react-swipeable-views';
 
 const WorkArea = () => {
@@ -17,7 +24,7 @@ const WorkArea = () => {
   return (
     <div role="tabpanel" hidden={value !== index} id={`full-width-tabpanel-${index}`}aria-labelledby={`full-width-tab-${index}`} {...other} >
       {value === index && (
-        <Box p={3}>
+        <Box p={2}>
           <Typography>{children}</Typography>
         </Box>
       )}
@@ -37,7 +44,8 @@ const WorkArea = () => {
     demo2: {
       backgroundColor: '#1f4068',
       height:'auto',
-      borderRadius:'10px'
+      borderRadius:'10px',
+      width:'90%'
     },
   }));
 
@@ -84,6 +92,46 @@ const WorkArea = () => {
     };
   }
 
+  const StyledTableCell = withStyles((theme) => ({
+    head: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    body: {
+      fontSize: 14,
+    },
+  }))(TableCell);
+  
+  const StyledTableRow = withStyles((theme) => ({
+    root: {
+      '&:nth-of-type(odd)': {
+        backgroundColor: theme.palette.action.hover,
+      },
+    },
+  }))(TableRow);
+
+  function createData(exam, course, id, date, time, duration) {
+    return { exam, course, id, date, time, duration };
+  }
+
+  function ecreateData(exam, course, id, date, time, duration,score) {
+    return { exam, course, id, date, time, duration,score };
+  }
+  
+  const rows = [
+    createData('mid sem', 'DSA', '#301', '20/9/20', '11:00 a.m', '1hr'),
+    createData('mid sem', 'DSA', '#301', '20/9/20', '11:00 a.m', '1hr'),
+    createData('mid sem', 'DSA', '#301', '20/9/20', '11:00 a.m', '1hr'),
+    
+  ];
+
+  const erows = [
+    ecreateData('mid sem', 'DSA', '#301', '20/9/20', '11:00 a.m', '1hr', '06'),
+    ecreateData('mid sem', 'DSA', '#301', '20/9/20', '11:00 a.m', '1hr', '10'),
+    ecreateData('mid sem', 'DSA', '#301', '20/9/20', '11:00 a.m', '1hr', '03'),
+    
+  ];
+
     return (
         <div className="workarea">
             <div className={classes.demo2}>
@@ -93,18 +141,74 @@ const WorkArea = () => {
                         <StyledTab label="Schedule Exam" {...a11yProps(1)} />
                     </StyledTabs>
                 </Breadcrumbs>
-                <SwipeableViews
-                    axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                    index={value}
-                    onChangeIndex={handleChangeIndex}
-                >
-                    <TabPanel value={value} index={0} dir={theme.direction}>
-                    Item One
-                    </TabPanel>
-                    <TabPanel value={value} index={1} dir={theme.direction}>
-                    Item Two
-                    </TabPanel>
+                <Paper>
+                  <SwipeableViews
+                      axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                      index={value}
+                      onChangeIndex={handleChangeIndex} >
+                      <TabPanel value={value} index={0} dir={theme.direction}>
+                      <Table>
+                        <TableHead>
+                          <TableRow>
+                            <StyledTableCell>Exam Name</StyledTableCell>
+                            <StyledTableCell align="right">Course Name</StyledTableCell>
+                            <StyledTableCell align="right">Course Id</StyledTableCell>
+                            <StyledTableCell align="right">Exam Date</StyledTableCell>
+                            <StyledTableCell align="right">Start Time</StyledTableCell>
+                            <StyledTableCell align="right">Duration</StyledTableCell>
+                            <StyledTableCell align="right">Score</StyledTableCell>
+
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {erows.map((row) => (
+                              <StyledTableRow key={row.name}>
+                                <StyledTableCell component="th" scope="row">
+                                  {row.exam}
+                                </StyledTableCell>
+                                <StyledTableCell align="right">{row.course}</StyledTableCell>
+                                <StyledTableCell align="right">{row.id}</StyledTableCell>
+                                <StyledTableCell align="right">{row.date}</StyledTableCell>
+                                <StyledTableCell align="right">{row.time}</StyledTableCell>
+                                <StyledTableCell align="right">{row.duration}</StyledTableCell>
+                                <StyledTableCell align="right">{row.score}</StyledTableCell>
+
+                              </StyledTableRow>
+                            ))}
+                        </TableBody>
+                      </Table>
+                      </TabPanel>
+                      <TabPanel value={value} index={1} dir={theme.direction}>
+                      <Button variant="outlined">Create Question Bank</Button><br/><br/><br/>
+                      <Table>
+                        <TableHead>
+                          <TableRow>
+                            <StyledTableCell>Exam Name</StyledTableCell>
+                            <StyledTableCell align="right">Course Name</StyledTableCell>
+                            <StyledTableCell align="right">Course Id</StyledTableCell>
+                            <StyledTableCell align="right">Exam Date</StyledTableCell>
+                            <StyledTableCell align="right">Start Time</StyledTableCell>
+                            <StyledTableCell align="right">Duration</StyledTableCell>
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {rows.map((row) => (
+                              <StyledTableRow key={row.name}>
+                                <StyledTableCell component="th" scope="row">
+                                  {row.exam}
+                                </StyledTableCell>
+                                <StyledTableCell align="right">{row.course}</StyledTableCell>
+                                <StyledTableCell align="right">{row.id}</StyledTableCell>
+                                <StyledTableCell align="right">{row.date}</StyledTableCell>
+                                <StyledTableCell align="right">{row.time}</StyledTableCell>
+                                <StyledTableCell align="right">{row.duration}</StyledTableCell>
+                              </StyledTableRow>
+                            ))}
+                        </TableBody>
+                      </Table>
+                      </TabPanel>
                 </SwipeableViews>
+                </Paper>
             </div>
         </div>
     )
