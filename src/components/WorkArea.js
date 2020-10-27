@@ -21,7 +21,9 @@ Backdrop,
 Input,
 FormControl,
 Radio,
-FormControlLabel} from '@material-ui/core';
+FormControlLabel,
+RadioGroup} from '@material-ui/core';
+import CreateQues from './CreateQues';
 
 const WorkArea = () => {
   function TabPanel(props) {
@@ -149,6 +151,7 @@ const WorkArea = () => {
 
   const classModal = useStylesmodal();
     const [open, setOpen] = React.useState(false);
+    const [open1, setOpen1] = React.useState(false);
   
     const handleOpen = () => {
       setOpen(true);
@@ -158,6 +161,10 @@ const WorkArea = () => {
       setOpen(false);
     };
 
+    const handleOpen1 = () => {
+      setOpen1(true);
+    };
+  
     return (
         <div className="workarea">
             <div className={classes.demo2}>
@@ -201,7 +208,7 @@ const WorkArea = () => {
                       </Table>
                       </TabPanel>
                       <TabPanel value={value} index={1} dir={theme.direction}>
-                      <Button variant="outlined" onClick={handleOpen}>Create Question Bank</Button>
+                      <Button variant="outlined" onClick={handleOpen}>Create Question Bank</Button><br/><br/><br/>
                       <Modal
                             aria-labelledby="transition-modal-title"
                             aria-describedby="transition-modal-description"
@@ -230,14 +237,13 @@ const WorkArea = () => {
                                       <tr><td>Start Time</td><td><Input type="time"></Input>24-hour Clock</td></tr>
                                       <tr><td>Duration</td><td><Input type="text"></Input>minutes</td></tr>
                                       <tr><td>No of Questions</td><td><Input type="text"></Input></td></tr>
-                                      <td><Button variant="contained">Next</Button></td>
-                                    </tbody>
+                                      <td><Button variant="contained" onClick={handleOpen1}>Next</Button></td><CreateQues open={open1} />
+                                      </tbody>
                                   </table>
                                 </p>
                               </div>
                             </Fade>
                           </Modal>
-      <br/><br/><br/>
                       <Table>
                         <TableHead>
                           <TableRow>
