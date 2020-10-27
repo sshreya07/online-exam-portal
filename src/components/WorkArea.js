@@ -14,8 +14,14 @@ import {
   TableBody,
   TableRow,
 TableCell,
-Button} from '@material-ui/core';
-import SwipeableViews from 'react-swipeable-views';
+Button,
+Modal,
+Fade,
+Backdrop,
+Input,
+FormControl,
+Radio,
+FormControlLabel} from '@material-ui/core';
 
 const WorkArea = () => {
   function TabPanel(props) {
@@ -78,10 +84,6 @@ const WorkArea = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-    
-  const handleChangeIndex = (index) => {
-    setValue(index);
-  };
       
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
@@ -132,6 +134,30 @@ const WorkArea = () => {
     
   ];
 
+  const useStylesmodal = makeStyles((theme) => ({
+    modal: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    paper: {
+      backgroundColor: theme.palette.background.paper,
+      border: '2px solid #000',
+      padding: theme.spacing(2, 4, 3),
+    },
+  }));
+
+  const classModal = useStylesmodal();
+    const [open, setOpen] = React.useState(false);
+  
+    const handleOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+    };
+
     return (
         <div className="workarea">
             <div className={classes.demo2}>
@@ -142,10 +168,6 @@ const WorkArea = () => {
                     </StyledTabs>
                 </Breadcrumbs>
                 <Paper>
-                  <SwipeableViews
-                      axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                      index={value}
-                      onChangeIndex={handleChangeIndex} >
                       <TabPanel value={value} index={0} dir={theme.direction}>
                       <Table>
                         <TableHead>
@@ -179,7 +201,43 @@ const WorkArea = () => {
                       </Table>
                       </TabPanel>
                       <TabPanel value={value} index={1} dir={theme.direction}>
-                      <Button variant="outlined">Create Question Bank</Button><br/><br/><br/>
+                      <Button variant="outlined" onClick={handleOpen}>Create Question Bank</Button>
+                      <Modal
+                            aria-labelledby="transition-modal-title"
+                            aria-describedby="transition-modal-description"
+                            className={classModal.modal}
+                            open={open}
+                            onClose={handleClose}
+                            closeAfterTransition
+                            BackdropComponent={Backdrop}
+                            BackdropProps={{
+                              timeout: 500,
+                            }}
+                          >
+                            <Fade in={open}>
+                              <div className={classModal.paper}>
+                                <h2 id="transition-modal-title">Schedule Exam</h2>
+                                <p id="transition-modal-description">
+                                  <table>
+                                    <tbody>
+                                      <tr><td>Exam Type</td><td>
+                                        <FormControl>
+                                        <FormControlLabel value="end" control={<Radio color="primary" />} label="Objective" />
+                                        </FormControl></td></tr>
+                                      <tr><td>Exam Name</td><td><Input type="text"></Input></td></tr>
+                                      <tr><td>Course Name and Id</td><td><Input type="text"></Input></td><td><Input type="text"></Input></td></tr>
+                                      <tr><td>Exam Date</td><td><Input type="date"></Input></td></tr>
+                                      <tr><td>Start Time</td><td><Input type="time"></Input>24-hour Clock</td></tr>
+                                      <tr><td>Duration</td><td><Input type="text"></Input>minutes</td></tr>
+                                      <tr><td>No of Questions</td><td><Input type="text"></Input></td></tr>
+                                      <td><Button variant="contained">Next</Button></td>
+                                    </tbody>
+                                  </table>
+                                </p>
+                              </div>
+                            </Fade>
+                          </Modal>
+      <br/><br/><br/>
                       <Table>
                         <TableHead>
                           <TableRow>
@@ -207,7 +265,6 @@ const WorkArea = () => {
                         </TableBody>
                       </Table>
                       </TabPanel>
-                </SwipeableViews>
                 </Paper>
             </div>
         </div>
@@ -215,3 +272,4 @@ const WorkArea = () => {
 }
 
 export default WorkArea;
+

@@ -95,6 +95,10 @@ body {
   font-size: 16px;
 }
 
+.leftpanel ul li Link {
+  text-decoration: none;
+}
+
 .leftpanel ul li Button {
   padding: 1rem 3rem;
   width: 100%;
