@@ -8,6 +8,7 @@ import Dashboard from './components/Dashboard';
 import Exams from './components/Exams';
 import Profile from './components/Profile';
 import Users from './components/Users';
+import CreateQues from './components/CreateQues';
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
             <Route exact path="/exams" component={Exams} />
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/users" component={Users} />
+            <Route exact path="/QuesBank" component={CreateQues}/>
           </Switch>
         </div>
       </Router>

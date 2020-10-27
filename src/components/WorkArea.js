@@ -22,8 +22,10 @@ Input,
 FormControl,
 Radio,
 FormControlLabel,
-TextField} from '@material-ui/core';
+TextField,
+} from '@material-ui/core';
 import CreateQues from './CreateQues';
+import {Link} from 'react-router-dom';
 
 const WorkArea = () => {
   function TabPanel(props) {
@@ -161,10 +163,6 @@ const WorkArea = () => {
       setOpen(false);
     };
 
-    const handleOpen1 = () => {
-      setOpen1(true);
-    };
-  
     return (
         <div className="workarea">
             <div className={classes.demo2}>
@@ -237,7 +235,7 @@ const WorkArea = () => {
                                       <tr><td>Start Time</td><td><TextField id="standard-required"  variant="outlined" size="small" type="time" />24-hour Clock</td></tr>
                                       <tr><td>Duration</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="text" />minutes</td></tr>
                                       <tr><td>No of Questions</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="number" /></td></tr>
-                                      <td><Button variant="contained" onClick={handleOpen1}>Next</Button></td><CreateQues open={open1} />
+                                      <td><Link to="/QuesBank"><Button variant="contained" >Next</Button></Link></td>
                                       </tbody>
                                   </table>
                                 </p>
