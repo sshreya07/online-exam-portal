@@ -22,7 +22,7 @@ Input,
 FormControl,
 Radio,
 FormControlLabel,
-RadioGroup} from '@material-ui/core';
+TextField} from '@material-ui/core';
 import CreateQues from './CreateQues';
 
 const WorkArea = () => {
@@ -231,12 +231,12 @@ const WorkArea = () => {
                                         <FormControl>
                                         <FormControlLabel value="end" control={<Radio color="primary" />} label="Objective" />
                                         </FormControl></td></tr>
-                                      <tr><td>Exam Name</td><td><Input type="text"></Input></td></tr>
-                                      <tr><td>Course Name and Id</td><td><Input type="text"></Input></td><td><Input type="text"></Input></td></tr>
-                                      <tr><td>Exam Date</td><td><Input type="date"></Input></td></tr>
-                                      <tr><td>Start Time</td><td><Input type="time"></Input>24-hour Clock</td></tr>
-                                      <tr><td>Duration</td><td><Input type="text"></Input>minutes</td></tr>
-                                      <tr><td>No of Questions</td><td><Input type="text"></Input></td></tr>
+                                      <tr><td>Exam Name</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="text" /></td></tr>
+                                      <tr><td>Course Name and Id</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="text" /></td><td><TextField id="standard-required" label="id" variant="outlined" size="small" type="text" /></td></tr>
+                                      <tr><td>Exam Date</td><td><TextField id="standard-required"  variant="outlined" size="small" type="date" /></td></tr>
+                                      <tr><td>Start Time</td><td><TextField id="standard-required"  variant="outlined" size="small" type="time" />24-hour Clock</td></tr>
+                                      <tr><td>Duration</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="text" />minutes</td></tr>
+                                      <tr><td>No of Questions</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="number" /></td></tr>
                                       <td><Button variant="contained" onClick={handleOpen1}>Next</Button></td><CreateQues open={open1} />
                                       </tbody>
                                   </table>
