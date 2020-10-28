@@ -28,7 +28,13 @@ const ExamState = (props) => {
     const [state, dispatch] = useReducer(ExamReducer, initialState);
 
     return (
-        <ExamContext.Provider value={{}}>
+        <ExamContext.Provider value={{examType:state.examType,
+        examName: state.examName,
+        date: state.date,
+        duration: state.duration,
+        noOfQues: state.courseName,
+        courseName: state.courseId,
+        }}>
             {props.children}
         </ExamContext.Provider>
     )

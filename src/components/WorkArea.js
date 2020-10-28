@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useContext} from 'react'
 import {
     Tabs,
     withStyles,
@@ -26,8 +26,11 @@ TextField,
 } from '@material-ui/core';
 import CreateQues from './CreateQues';
 import {Link} from 'react-router-dom';
+import ExamContext from './context/examContext';
 
 const WorkArea = () => {
+  const examContext = useContext(ExamContext);
+
   function TabPanel(props) {
     const { children, value, index, ...other } = props;
       
@@ -154,6 +157,7 @@ const WorkArea = () => {
   const classModal = useStylesmodal();
     const [open, setOpen] = React.useState(false);
     const [open1, setOpen1] = React.useState(false);
+    const [examName,setName] = React.useState('');
   
     const handleOpen = () => {
       setOpen(true);
@@ -162,6 +166,13 @@ const WorkArea = () => {
     const handleClose = () => {
       setOpen(false);
     };
+
+    const onchange = (e) =>{
+      setName(e.target.value);
+      console.log(examName);
+      console.log('ok');
+      e.preventDefault();
+    }
 
     return (
         <div className="workarea">
@@ -229,8 +240,8 @@ const WorkArea = () => {
                                         <FormControl>
                                         <FormControlLabel value="end" control={<Radio color="primary" />} label="Objective" />
                                         </FormControl></td></tr>
-                                      <tr><td>Exam Name</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="text" /></td></tr>
-                                      <tr><td>Course Name and Id</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="text" /></td><td><TextField id="standard-required" label="id" variant="outlined" size="small" type="text" /></td></tr>
+                                      <tr><td>Exam Name</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="text" onChange={onchange}/></td></tr>
+                                      <tr><td>Course Name and Id</td><td><TextField id="standard-required" label="coursename" variant="outlined" size="small" type="text" /></td><td><TextField id="standard-required" label="id" variant="outlined" size="small" type="text" /></td></tr>
                                       <tr><td>Exam Date</td><td><TextField id="standard-required"  variant="outlined" size="small" type="date" /></td></tr>
                                       <tr><td>Start Time</td><td><TextField id="standard-required"  variant="outlined" size="small" type="time" />24-hour Clock</td></tr>
                                       <tr><td>Duration</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="text" />minutes</td></tr>
