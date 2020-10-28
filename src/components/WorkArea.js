@@ -246,7 +246,7 @@ const WorkArea = () => {
                                       <tr><td>Start Time</td><td><TextField id="standard-required"  variant="outlined" size="small" type="time" />24-hour Clock</td></tr>
                                       <tr><td>Duration</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="text" />minutes</td></tr>
                                       <tr><td>No of Questions</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="number" /></td></tr>
-                                      <td><Link to="/QuesBank"><Button variant="contained" >Next</Button></Link></td>
+                                      <td><Link to="/QuesBank" style={{textDecoration:'none'}}><Button variant="contained" >Next</Button></Link></td>
                                       </tbody>
                                   </table>
                                 </p>
