@@ -116,11 +116,10 @@ body {
 }
 
 .workarea {
-  padding: 3rem 0 3rem 3rem;
+  padding: 3rem 0;
   height: auto;
-  align-content: space-around;
   position: relative;
-  left: 5rem;
+  left: 16rem;
 }
 
 .workarea .tab {
@@ -131,4 +130,15 @@ body {
 .workarea Button:hover {
   background-color: #1f4068;
   color: white;
+}
+
+.workarea .table {
+  float: left;
+  width: 1000px;
+  border: 2px solid rgb(221, 221, 221);
+}
+
+.workarea .table .tableRows:hover {
+  background-color: rgb(240, 240, 240);
+  color: black;
 }

@@ -234,7 +234,7 @@ const WorkArea = () => {
                                         <FormControl>
                                         <FormControlLabel value="end" control={<Radio color="primary" />} label="Objective" />
                                         </FormControl></td></tr>
-                                      <tr><td>Exam Name</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="text" onChange={onChangeExamName}/></td></tr>
+                                      <tr><td>Exam Name</td><td><TextField id="standard-required" label="name" value={examName} variant="outlined" size="small" type="text" onChange={onChangeExamName}/></td></tr>
                                       {/* <tr><td>Course Name and Id</td><td><TextField id="standard-required" label="coursename" variant="outlined" size="small" type="text" /></td><td><TextField id="standard-required" label="id" variant="outlined" size="small" type="text" /></td></tr>
                                       <tr><td>Exam Date</td><td><TextField id="standard-required"  variant="outlined" size="small" type="date" /></td></tr>
                                       <tr><td>Start Time</td><td><TextField id="standard-required"  variant="outlined" size="small" type="time" />24-hour Clock</td></tr>

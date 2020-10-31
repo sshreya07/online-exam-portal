@@ -2,6 +2,10 @@ import React, {useReducer} from 'react';
 import ExamContext from "./examContext";
 import ExamReducer from "./examReducer";
 
+import {
+    GET_EXAMNAME
+} from '../types';
+
 const ExamState = (props) => {
     const initialState = {
         examType: 'objective',
@@ -27,6 +31,13 @@ const ExamState = (props) => {
 
     const [state, dispatch] = useReducer(ExamReducer, initialState);
 
+    const getexamName = (text) => {
+        dispatch({ 
+            type: GET_EXAMNAME, 
+            payload: {text},
+        });
+    }
+
     return (
         <ExamContext.Provider 
         value={{examType:state.examType,
@@ -35,6 +46,7 @@ const ExamState = (props) => {
         // duration: state.duration,
         // noOfQues: state.courseName,
         // courseName: state.courseId,
+        getexamName
         }}>
             {props.children}
         </ExamContext.Provider>
