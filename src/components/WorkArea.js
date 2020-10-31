@@ -1,4 +1,4 @@
-import React , {useContext} from 'react'
+import React , {useContext,useState} from 'react'
 import {
     Tabs,
     withStyles,
@@ -90,10 +90,11 @@ const WorkArea = () => {
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    event.preventDefault();
   };
       
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
 
   function a11yProps(index) {
     return {
@@ -155,9 +156,9 @@ const WorkArea = () => {
   }));
 
   const classModal = useStylesmodal();
-    const [open, setOpen] = React.useState(false);
-    const [open1, setOpen1] = React.useState(false);
-    const [examName,setName] = React.useState('');
+    const [open, setOpen] = useState(false);
+    // const [open1, setOpen1] = useState(false);
+    const [examName,setName] = useState("");
   
     const handleOpen = () => {
       setOpen(true);
@@ -167,11 +168,11 @@ const WorkArea = () => {
       setOpen(false);
     };
 
-    const onchange = (e) =>{
+    const onChangeExamName = (e) =>{
       setName(e.target.value);
       console.log(examName);
-      console.log('ok');
-      e.preventDefault();
+      // console.log('ok');
+      // e.preventDefault();
     }
 
     return (
@@ -219,16 +220,9 @@ const WorkArea = () => {
                       <TabPanel value={value} index={1} dir={theme.direction}>
                       <Button variant="outlined" onClick={handleOpen}>Create Question Bank</Button><br/><br/><br/>
                       <Modal
-                            aria-labelledby="transition-modal-title"
-                            aria-describedby="transition-modal-description"
                             className={classModal.modal}
                             open={open}
                             onClose={handleClose}
-                            closeAfterTransition
-                            BackdropComponent={Backdrop}
-                            BackdropProps={{
-                              timeout: 500,
-                            }}
                           >
                             <Fade in={open}>
                               <div className={classModal.paper}>
@@ -240,13 +234,13 @@ const WorkArea = () => {
                                         <FormControl>
                                         <FormControlLabel value="end" control={<Radio color="primary" />} label="Objective" />
                                         </FormControl></td></tr>
-                                      <tr><td>Exam Name</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="text" onChange={onchange}/></td></tr>
-                                      <tr><td>Course Name and Id</td><td><TextField id="standard-required" label="coursename" variant="outlined" size="small" type="text" /></td><td><TextField id="standard-required" label="id" variant="outlined" size="small" type="text" /></td></tr>
+                                      <tr><td>Exam Name</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="text" onChange={onChangeExamName}/></td></tr>
+                                      {/* <tr><td>Course Name and Id</td><td><TextField id="standard-required" label="coursename" variant="outlined" size="small" type="text" /></td><td><TextField id="standard-required" label="id" variant="outlined" size="small" type="text" /></td></tr>
                                       <tr><td>Exam Date</td><td><TextField id="standard-required"  variant="outlined" size="small" type="date" /></td></tr>
                                       <tr><td>Start Time</td><td><TextField id="standard-required"  variant="outlined" size="small" type="time" />24-hour Clock</td></tr>
                                       <tr><td>Duration</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="text" />minutes</td></tr>
                                       <tr><td>No of Questions</td><td><TextField id="standard-required" label="name" variant="outlined" size="small" type="number" /></td></tr>
-                                      <td><Link to="/QuesBank" style={{textDecoration:'none'}}><Button variant="contained" >Next</Button></Link></td>
+                                      <td><Link to="/QuesBank" style={{textDecoration:'none'}}><Button variant="contained" >Next</Button></Link></td> */}
                                       </tbody>
                                   </table>
                                 </p>
