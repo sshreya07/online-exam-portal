@@ -41,10 +41,10 @@ const ExamArea = () => {
     }
 
     return (
-        <div>
+        <div className="workarea">
             <Tabs value={value} onChange={handleChange} aria-label="simple tabs">
-                <Tab label="Item One" {...a11yProps(0)} />
-                <Tab label="Item Two" {...a11yProps(1)} />
+                <Tab label="Attend Exam" {...a11yProps(0)} className="tab"  />
+                <Tab label="Schedule Exam" {...a11yProps(1)} className="tab" />
             </Tabs>
             <TabPanel value={value} index={0}>
                 Item One
