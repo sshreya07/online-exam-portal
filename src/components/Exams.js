@@ -1,10 +1,9 @@
 import React, { Fragment } from 'react';
-import WorkArea from "./WorkArea";
-
+import ExamArea from './ExamArea';
 const Exams = () => {
     return (
         <Fragment>
-          <WorkArea/>  
+            <ExamArea/>
         </Fragment>
     )
 }
