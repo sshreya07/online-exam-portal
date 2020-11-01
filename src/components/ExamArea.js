@@ -61,12 +61,13 @@ const ExamArea = () => {
       createData('Gingerbread', 356, 16.0, 49, 3.9),
     ];
 
-    const [examName , setName] = useState("");
+    const [examName , setexamName] = useState("");
 
-    const onChangeExamName = (e) => {
-      setName(e.target.value);
+    const onChangeExamName = (event) => {
+      setexamName(event.target.value);
       console.log(examName);
       examContext.getexamName(examName);
+      event.preventDefault();
     }
 
     return (
@@ -105,7 +106,7 @@ const ExamArea = () => {
             <form autoComplete="off">
             <table>
               <tbody>
-                <tr><td>Exam Name</td><td><TextField id="standard-required" value={examName} label="name" variant="outlined" size="small" type="text" align="right" onChange={onChangeExamName} /></td></tr>
+                <tr><td>Exam Name</td><td><TextField id="standard-required"  label="name" variant="outlined" size="small" type="text" align="right" onChange={onChangeExamName} /></td></tr>
               </tbody>
             </table>
             </form>
