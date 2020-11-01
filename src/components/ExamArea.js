@@ -9,7 +9,8 @@ TableCell,
 TableRow,
 Table,
 TableHead,
-TextField
+TextField,
+Button
 } from '@material-ui/core';
 import ExamContext from './context/examContext';
 
@@ -65,6 +66,10 @@ const ExamArea = () => {
 
     const onChangeExamName = (event) => {
       setexamName(event.target.value);
+      event.preventDefault();
+    }
+
+    const onSubmit = (event) => {
       console.log(examName);
       examContext.getexamName(examName);
       event.preventDefault();
@@ -103,10 +108,11 @@ const ExamArea = () => {
               </Table>
             </TabPanel>
             <TabPanel value={value} index={1}>
-            <form autoComplete="off">
+            <form onSubmit={onSubmit}>
             <table>
               <tbody>
-                <tr><td>Exam Name</td><td><TextField id="standard-required"  label="name" variant="outlined" size="small" type="text" align="right" onChange={onChangeExamName} /></td></tr>
+                <tr><td>Exam Name</td><td><TextField label="name" variant="outlined" size="small" type="text" align="right" value={examName} onChange={onChangeExamName} /></td></tr>
+                <tr><td><Button type="submit">Next</Button></td></tr>
               </tbody>
             </table>
             </form>
