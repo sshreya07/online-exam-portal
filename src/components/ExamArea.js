@@ -64,9 +64,15 @@ const ExamArea = () => {
 
     const [examName , setexamName] = useState("");
 
-    const onChangeExamName = (event) => {
-      setexamName(event.target.value);
-      event.preventDefault();
+    // const onChangeExamName = (event) => {
+    //   setexamName(event.target.value);
+    //   event.preventDefault();
+    // }
+
+    const handleChangeExamName = (event, newexamName) => {
+      // newexamName = event.target.value;
+      setexamName(newexamName);
+      console.log(examName);
     }
 
     const onSubmit = (event) => {
@@ -77,11 +83,11 @@ const ExamArea = () => {
 
     return (
         <div className="workarea">
-            <Tabs value={value} onChange={handleChange} aria-label="simple tabs">
+            <Tabs value={value} onChange={handleChange} aria-label="simple tabs" className="tabAlign">
                 <Tab label="Attend Exam" {...a11yProps(0)} className="tab"  />
                 <Tab label="Schedule Exam" {...a11yProps(1)} className="tab" />
             </Tabs>
-            <TabPanel value={value} index={0}>
+            <TabPanel value={value} index={0} className="tabAlign">
               <Table aria-label="simple table" className="table">
                 <TableHead>
                   <TableRow>
@@ -107,11 +113,11 @@ const ExamArea = () => {
                 </TableBody>
               </Table>
             </TabPanel>
-            <TabPanel value={value} index={1}>
+            <TabPanel value={value} index={1} className="tabAlign">
             <form onSubmit={onSubmit}>
             <table>
               <tbody>
-                <tr><td>Exam Name</td><td><TextField label="name" variant="outlined" size="small" type="text" align="right" value={examName} onChange={onChangeExamName} /></td></tr>
+                <tr><td>Exam Name</td><td><TextField label="name" variant="outlined" size="small" type="text" align="right" value={examName} onChange={event => handleChangeExamName(event.target.value)} /></td></tr>
                 <tr><td><Button type="submit">Next</Button></td></tr>
               </tbody>
             </table>

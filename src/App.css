@@ -116,7 +116,7 @@ body {
 }
 
 .workarea {
-  padding: 3rem 0;
+  padding: 3.5rem 0;
   height: auto;
   position: relative;
   left: 16rem;
@@ -134,8 +134,13 @@ body {
 
 .workarea .table {
   float: left;
-  width: 1000px;
+  width: 800px;
   border: 2px solid rgb(221, 221, 221);
+}
+
+.workarea .tabAlign {
+  position: relative;
+  right: 10rem;
 }
 
 .workarea .table .tableRows:hover {
