@@ -62,16 +62,16 @@ const ExamArea = () => {
       createData('Gingerbread', 356, 16.0, 49, 3.9),
     ];
 
-    const [examName , setexamName] = useState("");
+    const [examName , setExamName] = useState("");
 
     // const onChangeExamName = (event) => {
     //   setexamName(event.target.value);
     //   event.preventDefault();
     // }
 
-    const handleChangeExamName = (event, newexamName) => {
+    const handleChangeExamName = (event, newExamName) => {
       // newexamName = event.target.value;
-      setexamName(newexamName);
+      setExamName(newExamName);
       console.log(examName);
     }
 
