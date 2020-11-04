@@ -13,9 +13,6 @@ const LeftNav = () => {
                 <li><Link to="/profile" style={{textDecoration:'none'}}><Button variant="contained">Profile</Button></Link></li>
 
             </ul>
-            <ul>Admin
-                <li><Link to="/users" style={{textDecoration:'none'}}><Button variant="contained">Users</Button></Link></li> 
-            </ul>
       </div>
     )
 }

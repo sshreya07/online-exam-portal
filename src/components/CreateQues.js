@@ -28,7 +28,9 @@ const CreateQues = (props) => {
     //   };
 
     return (
-      <Card>
+      <div className="workarea">
+        <div className="tabAlign">
+        <Card>
         <CardContent>
         <h2 id="transition-modal-title">Schedule Exam</h2>
         <p id="transition-modal-description">
@@ -50,6 +52,8 @@ const CreateQues = (props) => {
         </p>
         </CardContent>
         </Card>
+        </div>
+      </div>
     )
 }
 

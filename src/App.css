@@ -78,7 +78,7 @@ body {
   display: flex;
   flex-direction: column;
   align-content: space-around;
-  /* background-color: #1f4068; */
+  background-color: rgba(230, 230, 230, 0.5);
   padding: 2rem 1rem 0 0;
   width: 16rem;
   height: 45rem;
@@ -120,6 +120,7 @@ body {
   height: auto;
   position: relative;
   left: 16rem;
+  width: 1200px;
 }
 
 .workarea .tab {
@@ -141,6 +142,13 @@ body {
 .workarea .tabAlign {
   position: relative;
   right: 10rem;
+}
+
+.workarea .createExamBtn {
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  bottom: 2rem;
 }
 
 .workarea .table .tableRows:hover {
