@@ -3,7 +3,13 @@ import ExamContext from "./examContext";
 import ExamReducer from "./examReducer";
 
 import {
-    GET_EXAMNAME
+    GET_COURSENAME,
+    GET_EXAMNAME,
+    GET_COURSEID,
+    GET_DATE,
+    GET_TIME,
+    GET_DURATION,
+    GET_TOTALQUES
 } from '../types';
 
 const ExamState = (props) => {
@@ -11,10 +17,12 @@ const ExamState = (props) => {
         examType: 'objective',
         examName: "",
         // date: Date.now(),
-        // duration: 0,
-        // noOfQues: 0,
-        // courseName: '',
-        // courseId: '',
+        date: '',
+        time: '',
+        duration: 0,
+        totalQues: 0,
+        courseName: '',
+        courseId: '',
         // // monitoring: false,
         // // negativeMarking: false,
         // questions: [],
@@ -31,9 +39,51 @@ const ExamState = (props) => {
 
     const [state, dispatch] = useReducer(ExamReducer, initialState);
 
-    const getexamName = (text) => {
+    const getExamName = (text) => {
         dispatch({ 
             type: GET_EXAMNAME, 
+            payload: {text},
+        });
+    }
+
+    const getCourseName = (text) => {
+        dispatch({ 
+            type: GET_COURSENAME, 
+            payload: {text},
+        });
+    }
+
+    const getCourseId = (text) => {
+        dispatch({ 
+            type: GET_COURSEID, 
+            payload: {text},
+        });
+    }
+
+    const getDate = (text) => {
+        dispatch({ 
+            type: GET_DATE, 
+            payload: {text},
+        });
+    }
+
+    const getTime = (text) => {
+        dispatch({ 
+            type: GET_TIME, 
+            payload: {text},
+        });
+    }
+
+    const getDuration = (text) => {
+        dispatch({ 
+            type: GET_DURATION, 
+            payload: {text},
+        });
+    }
+
+    const getTotalQues = (text) => {
+        dispatch({ 
+            type: GET_TOTALQUES, 
             payload: {text},
         });
     }
@@ -42,11 +92,19 @@ const ExamState = (props) => {
         <ExamContext.Provider 
         value={{examType:state.examType,
         examName: state.examName,
-        // date: state.date,
-        // duration: state.duration,
-        // noOfQues: state.courseName,
-        // courseName: state.courseId,
-        getexamName
+        date: state.date,
+        duration: state.duration,
+        courseName: state.courseName,
+        courseId: state.courseId,
+        time: state.time,
+        totalQues: state.totalQues,
+        getExamName,
+        getCourseName,
+        getCourseId,
+        getDate,
+        getTime,
+        getDuration,
+        getTotalQues
         }}>
             {props.children}
         </ExamContext.Provider>

@@ -8,7 +8,8 @@ import {
     RadioGroup,
     Card,
     CardContent,
-    TextField
+    TextField,
+    CardHeader
 } from '@material-ui/core'
 
 const CreateQues = (props) => {
@@ -31,8 +32,8 @@ const CreateQues = (props) => {
       <div className="workarea">
         <div className="tabAlign">
         <Card>
+        <CardHeader title="Schedule Exam"> </CardHeader>
         <CardContent>
-        <h2 id="transition-modal-title">Schedule Exam</h2>
         <p id="transition-modal-description">
         <table>
           <tbody>

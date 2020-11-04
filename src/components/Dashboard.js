@@ -1,12 +1,10 @@
-import React, {useState,useContext} from 'react'
+import React from 'react'
 import {
 Button,
 } from '@material-ui/core';
-import ExamContext from './context/examContext';
 import {Link} from 'react-router-dom';
 
 const Dashboard = () => {
-    const examContext = useContext(ExamContext);
 
     return (
         <div className="workarea">
