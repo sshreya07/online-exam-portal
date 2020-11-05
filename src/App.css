@@ -78,7 +78,7 @@ body {
   display: flex;
   flex-direction: column;
   align-content: space-around;
-  background-color: rgba(230, 230, 230, 0.5);
+  background-color: rgba(231, 231, 231, 0.5);
   padding: 2rem 1rem 0 0;
   width: 16rem;
   height: 45rem;
@@ -107,12 +107,13 @@ body {
   text-transform: capitalize;
   box-shadow: 0px 5px 10px 0px rgba(155, 155, 155, 0.5);
   background-color: whitesmoke;
+  border-radius: 2rem;
 }
 
 .leftpanel ul li Button:hover {
-  background-color: #1f4068;
-  color: white;
-  border-radius: 2rem;
+  background-color: whitesmoke;
+  color: #1f4068;
+  box-shadow: inset 0px 5px 5px 0px rgba(155, 155, 155, 0.4);
 }
 
 .workarea {
@@ -149,6 +150,16 @@ body {
   justify-content: flex-end;
   position: relative;
   bottom: 2rem;
+}
+
+.workarea .createExamBtn Button {
+  background-color: rgba(231, 231, 231, 0.5);
+}
+
+.workarea .createExamBtn Button:hover {
+  background-color: #07a807;
+  color: whitesmoke;
+  box-shadow: 0px 5px 10px 0px rgba(8, 228, 0, 0.5);
 }
 
 .workarea .table .tableRows:hover {

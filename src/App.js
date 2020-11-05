@@ -8,6 +8,7 @@ import Dashboard from './components/Dashboard';
 import Exams from './components/Exams';
 import Profile from './components/Profile';
 import CreateQues from './components/CreateQues';
+import ScheduleExam from './components/ScheduleExam';
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
             <Route exact path="/dashboard" component={Dashboard}/>
             <Route exact path="/exams" component={Exams} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/createExam" component={ScheduleExam}/>
             <Route exact path="/QuesBank" component={CreateQues}/>
           </Switch>
         </div>
