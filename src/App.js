@@ -17,7 +17,6 @@ const App = () => {
         <div className="App">
           <BoardingPage/>
           <Switch>
-            <Route exact path="/boardingPage" component={BoardingPage} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/dashboard" component={Dashboard}/>
             <Route exact path="/exams" component={Exams} />

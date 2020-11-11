@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import {Link} from 'react-router-dom';
 import {Button, Card, CardContent} from '@material-ui/core';
-import BackgroundImage from './backgroundNew.jpg'
+import BackgroundImage from './backgroundNew.jpg';
+
 
 const BoardingPage = () => {
     return (
