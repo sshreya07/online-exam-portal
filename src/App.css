@@ -6,6 +6,29 @@ body {
   font-family: Raleway;
 }
 
+.App .card {
+  display: flex;
+  justify-content: space-between;
+  max-height: 600px;
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
+.App ul {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  font-size: 14px;
+}
+
+.App ul li {
+  padding: 0 1rem;
+  align-content: center;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;

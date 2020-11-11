@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import LeftNav from './LeftNav';
 import Navbar from "./Navbar";
 
 const Home = () => {
     return (
-        <div>
+        <Fragment>
           <Navbar/>
           <LeftNav/>
-        </div>
+        </Fragment>
     )
 }
 
