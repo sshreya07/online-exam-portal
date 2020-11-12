@@ -16,7 +16,7 @@ body {
   padding: 0 2rem;
 }
 
-.App ul {
+.onboard ul {
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -24,7 +24,7 @@ body {
   font-size: 14px;
 }
 
-.App ul li {
+.onboard ul li {
   padding: 0 1rem;
   align-content: center;
 }

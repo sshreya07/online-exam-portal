@@ -9,14 +9,18 @@ import CreateQues from './components/CreateQues';
 import ScheduleExam from './components/ScheduleExam';
 import Home from './components/Home';
 import BoardingPage from './components/BoardingPage';
+import LoginPage from './components/LoginPage';
+import SignupPage from './components/SignupPage';
 
 const App = () => {
   return (
     <ExamState>
       <Router>
         <div className="App">
-          <BoardingPage/>
           <Switch>
+            <Route exact path="/" component={BoardingPage} />
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/home" component={Home} />
             <Route exact path="/dashboard" component={Dashboard}/>
             <Route exact path="/exams" component={Exams} />

@@ -1,18 +1,19 @@
 import React from 'react';
 import logo from './logo.png';
 import avatar from './yogocat_animation.gif';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import SearchIcon from '@material-ui/icons/Search';
+// import NotificationsIcon from '@material-ui/icons/Notifications';
+// import SearchIcon from '@material-ui/icons/Search';
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
-import { Button, Badge } from '@material-ui/core';
+import { Button } from '@material-ui/core';
+import {Link} from 'react-router-dom';
 
 const Navbar = () => {
     return (
         <div className="navbar">
             <div className="title"><img src={logo} alt="logo" id="logoImg"></img>&ensp;<span className="logo">EXAM PORTAL</span></div>
             <ul>
-                <li><SearchIcon></SearchIcon></li>
-                <li><Badge color="error" invisible="true" showZero="false" overlap="circle" badgeContent={6}></Badge><NotificationsIcon></NotificationsIcon></li>
+                {/* <li><SearchIcon></SearchIcon></li>
+                <li><Badge color="error" invisible="true" showZero="false" overlap="circle" badgeContent={6}></Badge><NotificationsIcon></NotificationsIcon></li> */}
                 <li>
                     <div id="avatar" className="title">
                         <img src={avatar} alt="avatar" id="avatarImg"></img>
@@ -23,7 +24,7 @@ const Navbar = () => {
                     </div>
                 </li>
                 <li>
-                    <Button variant="outlined" color="white"><ExitToAppRoundedIcon></ExitToAppRoundedIcon>&ensp;Logout</Button>
+                    <Link to="/" style={{textDecoration: 'none'}}><Button variant="outlined" color="white"><ExitToAppRoundedIcon></ExitToAppRoundedIcon>&ensp;Logout</Button></Link>
                 </li>
             </ul>
         </div>

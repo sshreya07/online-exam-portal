@@ -1,12 +1,13 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {Button, Card, CardContent} from '@material-ui/core';
 import BackgroundImage from './backgroundNew.jpg';
 
 
+
 const BoardingPage = () => {
     return (
-        <Fragment>
+        <div className="onboard">
            <ul>
               <li> <Link to="/home" style={{textDecoration:'none'}}><Button variant="outlined">Teacher</Button></Link>
               </li>
@@ -19,7 +20,7 @@ const BoardingPage = () => {
                 <img src={BackgroundImage} alt="online exam" />
               </CardContent>
             </Card> 
-        </Fragment>
+        </div>
     )
 }
 
