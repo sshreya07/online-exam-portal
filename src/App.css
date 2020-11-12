@@ -29,6 +29,17 @@ body {
   align-content: center;
 }
 
+.onboard Button {
+  background-color: #1f4068;
+  border: 3px solid whitesmoke;
+  color: whitesmoke;
+}
+
+.onboard Button:hover {
+  color: black;
+  border-color: black;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
