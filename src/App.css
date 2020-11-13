@@ -6,7 +6,7 @@ body {
   font-family: Raleway;
 }
 
-.App .card {
+.App .innerCard {
   display: flex;
   justify-content: space-between;
   max-height: 600px;
