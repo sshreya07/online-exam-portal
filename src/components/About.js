@@ -6,7 +6,7 @@ const About = () => {
     return (
         <div>
             <div className="onboard" style={{color:'white' }}>
-            <h3 style={{float:'left'}}>About</h3>
+            <h2 style={{float:'left'}}>About</h2>
             <ul>
             <li>
               <Link to="/" style={{textDecoration:'none', fontWeight:'lighter'}}><Button variant="outlined">HOME</Button></Link>

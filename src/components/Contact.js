@@ -6,7 +6,7 @@ const Contact = () => {
     return (
         <div>
             <div className="onboard" style={{color:'white' }}>
-            <h3 style={{float:'left'}}>CONTACT</h3>
+            <h2 style={{float:'left'}}>CONTACT</h2>
             <ul>
             <li>
               <Link to="/" style={{textDecoration:'none', fontWeight:'lighter'}}><Button variant="outlined">HOME</Button></Link>
@@ -19,7 +19,9 @@ const Contact = () => {
             </ul>
             </div>
             <div className="container">
-                <h1>THANK YOU</h1>
+                <h1>comment</h1>
+                <p>Oops! that's bad you have faced an issue but you can discuss it with us.</p>
+                <p><textarea type="text" defaultValue="" style={{fontSize:'20px'}} /></p>
             </div>
         </div>
     )

@@ -53,7 +53,7 @@ body {
 .onboard .text ul Button {
   background-color: #ce06b3;
   color: whitesmoke;
-  border: 3px solid #ce06b3;
+  border: 3px solid transparent;
   font-weight: bold;
 }
 
@@ -67,7 +67,7 @@ body {
 
 .onboard ul Button {
   color: whitesmoke;
-  border: 3px solid #3f0b5e;
+  border: 3px solid transparent;
 }
 
 .onboard ul Button:hover {
