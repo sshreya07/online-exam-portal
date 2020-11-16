@@ -6,16 +6,15 @@ body {
   font-family: Raleway;
 }
 
-.onboard #outerCard #innerCard {
-  display: flex;
-  justify-content: center;
-  max-width: 1100px;
-  margin: 2rem 4rem;
-  padding: 1rem 2rem;
-}
-
-.onboard #outerCard {
-  background-color: rgba(207, 204, 204, 0.568);
+.onboard {
+  background-color: #250858;
+  background-image: linear-gradient(
+    135deg,
+    #250858 36%,
+    #3f0b5e 63%,
+    #530c90 91%
+  );
+  padding: 1rem;
 }
 
 .onboard ul {
@@ -31,19 +30,42 @@ body {
   align-content: center;
 }
 
-.onboard Button {
-  background-color: #1f4068;
-  border: 3px solid whitesmoke;
-  color: whitesmoke;
+.onboard .text {
+  display: flex;
+  justify-content: flex-start;
+  float: left;
+  margin: 8rem;
+  color: white;
 }
 
-.onboard Button:hover {
-  color: black;
-  border-color: black;
+.onboard .text h1 {
+  font-size: 3rem;
+  font-weight: lighter;
+}
+
+.onboard .text ul Button {
+  background-color: #cf17b7;
+  color: whitesmoke;
+  border: 3px solid #cf17b7;
+  font-weight: bold;
+}
+
+.onboard .text ul Button:hover {
+  color: whitesmoke;
+  border: 3px solid whitesmoke;
+}
+
+.onboard ul Button {
+  color: whitesmoke;
+  border: 3px solid #3f0b5e;
+}
+
+.onboard ul Button:hover {
+  color: white;
+  border-color: whitesmoke;
 }
 
 .onboard .footer {
-  background-color: #1f4068;
   padding: 7px 0;
 }
 
