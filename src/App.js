@@ -11,6 +11,8 @@ import Home from './components/Home';
 import BoardingPage from './components/BoardingPage';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
+import About from './components/About';
+import Contact from './components/Contact';
 
 const App = () => {
   return (
@@ -19,6 +21,8 @@ const App = () => {
         <div className="App">
           <Switch>
             <Route exact path="/" component={BoardingPage} />
+            <Route exact path="/about" component={About}/>
+            <Route exact path="/contact" component={Contact}/>
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignupPage} />
             <Route exact path="/home" component={Home} />

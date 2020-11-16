@@ -9,10 +9,13 @@ const BoardingPage = () => {
     return (
         <div className="onboard">
             <ul>
-              <li> <Link to="/home" style={{textDecoration:'none', fontWeight:'lighter'}}><Button variant="outlined">ABOUT</Button></Link>
+            <li>
+              <Link to="/" style={{textDecoration:'none', fontWeight:'lighter'}}><Button variant="outlined">HOME</Button></Link>
+              </li>
+              <li> <Link to="/about" style={{textDecoration:'none', fontWeight:'lighter'}}><Button variant="outlined">ABOUT</Button></Link>
               </li>
               <li>
-              <Link to="/home" style={{textDecoration:'none', fontWeight:'lighter'}}><Button variant="outlined">CONTACT US</Button></Link>
+              <Link to="/contact" style={{textDecoration:'none', fontWeight:'lighter'}}><Button variant="outlined">CONTACT</Button></Link>
               </li>
             </ul>
             <div className="text" >

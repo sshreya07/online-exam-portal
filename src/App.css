@@ -6,6 +6,13 @@ body {
   font-family: Raleway;
 }
 
+.container {
+  max-width: 1100px;
+  margin: auto;
+  overflow: hidden;
+  padding: 0 2rem;
+}
+
 .onboard {
   background-color: #250858;
   background-image: linear-gradient(
@@ -44,15 +51,18 @@ body {
 }
 
 .onboard .text ul Button {
-  background-color: #cf17b7;
+  background-color: #ce06b3;
   color: whitesmoke;
-  border: 3px solid #cf17b7;
+  border: 3px solid #ce06b3;
   font-weight: bold;
 }
 
 .onboard .text ul Button:hover {
-  color: whitesmoke;
-  border: 3px solid whitesmoke;
+  transform: translate(0, -2px);
+  -webkit-box-shadow: 0px 10px 15px -6px#cf17b79a;
+  -moz-box-shadow: 0px 10px 15px -6px #cf17b79a;
+  box-shadow: 0px 10px 15px -6px #cf17b79a;
+  border-color: #ce06b3;
 }
 
 .onboard ul Button {
@@ -80,7 +90,13 @@ body {
   justify-content: space-between;
   align-content: center;
   padding: 0 2rem;
-  background-color: #1f4068;
+  background-color: #250858;
+  background-image: linear-gradient(
+    135deg,
+    #250858 36%,
+    #3f0b5e 63%,
+    #530c90 91%
+  );
   color: white;
   height: 58px;
 }
