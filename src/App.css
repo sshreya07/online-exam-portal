@@ -6,14 +6,16 @@ body {
   font-family: Raleway;
 }
 
-.App .innerCard {
+.onboard #outerCard #innerCard {
   display: flex;
-  justify-content: space-between;
-  max-height: 600px;
-  max-width: 1200px;
-  margin: auto;
-  overflow: hidden;
-  padding: 0 2rem;
+  justify-content: center;
+  max-width: 1100px;
+  margin: 2rem 4rem;
+  padding: 1rem 2rem;
+}
+
+.onboard #outerCard {
+  background-color: rgba(207, 204, 204, 0.568);
 }
 
 .onboard ul {
@@ -38,6 +40,17 @@ body {
 .onboard Button:hover {
   color: black;
   border-color: black;
+}
+
+.onboard .footer {
+  background-color: #1f4068;
+  padding: 7px 0;
+}
+
+.onboard .footer ul {
+  display: flex;
+  justify-content: center;
+  color: white;
 }
 
 .navbar {

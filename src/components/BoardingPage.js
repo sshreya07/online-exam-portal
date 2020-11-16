@@ -9,7 +9,7 @@ const BoardingPage = () => {
     return (
         <div className="onboard">
            <Card id="outerCard">
-             <CardContent style={{backgroundColor: 'cyan', Height: '800px'}}>
+             <CardContent>
              <ul>
               <li> <Link to="/home" style={{textDecoration:'none'}}><Button variant="outlined">Teacher</Button></Link>
               </li>
@@ -24,6 +24,12 @@ const BoardingPage = () => {
             </Card> 
              </CardContent>
            </Card>
+           <div className="footer">
+            <ul>
+              <li> Build with React
+              </li>
+            </ul>
+            </div>
             
         </div>
     )
