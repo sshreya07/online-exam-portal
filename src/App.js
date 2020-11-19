@@ -7,7 +7,6 @@ import Exams from './components/Exams';
 import Profile from './components/Profile';
 import CreateQues from './components/CreateQues';
 import ScheduleExam from './components/ScheduleExam';
-import Home from './components/Home';
 import BoardingPage from './components/BoardingPage';
 import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
@@ -25,7 +24,6 @@ const App = () => {
             <Route exact path="/contact" component={Contact}/>
             <Route exact path="/login" component={LoginPage} />
             <Route exact path="/signup" component={SignupPage} />
-            <Route exact path="/home" component={Home} />
             <Route exact path="/dashboard" component={Dashboard}/>
             <Route exact path="/exams" component={Exams} />
             <Route exact path="/profile" component={Profile} />

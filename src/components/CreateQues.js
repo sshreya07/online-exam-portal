@@ -8,7 +8,6 @@ import {
     RadioGroup,
     Card,
     CardContent,
-    TextField,
     CardHeader
 } from '@material-ui/core';
 import Navbar from './Navbar';
@@ -33,16 +32,14 @@ const CreateQues = (totalQues) => {
       <div>
         <Navbar/>
         <LeftNav/>
-      <div className="workarea">
-        <div className="tabAlign">
+      <div className="tabAlign">
         <Card>
         <CardHeader title="Schedule Exam"> </CardHeader>
-         
           <CardContent>
           <p id="transition-modal-description">
           <table>
             <tbody>
-              <tr><td>Question</td><td><TextField required id="standard-required" label="question" variant="outlined" size="small" type="text" /></td></tr><br/><br/>
+              <tr><td>Question</td><td><textarea required id="standard-required" label="question" variant="outlined" rows="5" cols="60" type="text" style={{fontSize:'18px'}} /></td></tr><br/><br/>
               <tr><td>options</td><td>
               <FormControl component="fieldset" >
                 <RadioGroup name="" value={value} onChange={handleChangeradio} style={{display:"inline-flex",flexWrap:"wrap",flexFlow:"row"}}>
@@ -58,7 +55,6 @@ const CreateQues = (totalQues) => {
           </p>
           </CardContent>
         </Card>
-        </div>
       </div>
       </div>
     )

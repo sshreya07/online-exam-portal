@@ -20,7 +20,7 @@ const BoardingPage = () => {
             </ul>
             <div className="text">
               <h1>Online<br/> Exam Platform<br/> 
-              <Link to="/home" style={{textDecoration:'none',position:'relative',top:'3rem'}}><Button variant="outlined">GET STARTED</Button></Link>
+              <Link to="/dashboard" style={{textDecoration:'none',position:'relative',top:'3rem'}}><Button variant="outlined">GET STARTED</Button></Link>
               </h1>
              
             </div>

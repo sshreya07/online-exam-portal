@@ -260,11 +260,6 @@ body {
   border: 2px solid rgb(221, 221, 221);
 }
 
-.workarea .tabAlign {
-  position: relative;
-  right: 10rem;
-}
-
 .workarea .createExamBtn {
   display: flex;
   justify-content: flex-end;
