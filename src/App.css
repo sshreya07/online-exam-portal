@@ -50,19 +50,48 @@ body {
   font-weight: lighter;
 }
 
-.onboard .text ul Button {
+.onboard .text Button {
   background-color: #ce06b3;
   color: whitesmoke;
   border: 3px solid transparent;
   font-weight: bold;
+  transition: all 0.25s ease;
 }
 
-.onboard .text ul Button:hover {
-  transform: translate(0, -2px);
-  -webkit-box-shadow: 0px 10px 15px -6px#cf17b79a;
-  -moz-box-shadow: 0px 10px 15px -6px #cf17b79a;
-  box-shadow: 0px 10px 15px -6px #cf17b79a;
+.onboard .text Button:hover {
+  transform: translate(0, -5px);
+  -webkit-box-shadow: 0px 11px 25px 0px rgba(255, 0, 191, 0.52);
+  -moz-box-shadow: 0px 11px 25px 0px rgba(255, 0, 191, 0.52);
+  box-shadow: 0px 11px 25px 0px rgba(255, 0, 191, 0.52);
   border-color: #ce06b3;
+}
+
+.onboard ul Button:hover {
+  transform: translate(-3px, -3px);
+  border: 3px solid transparent;
+}
+
+.onboard ul Button:hover::before {
+  transform: translate(3px, 3px);
+}
+
+.onboard ul Button:hover::after {
+  transform: translate(-3px, -3px);
+}
+
+.onboard ul Button::after,
+.onboard ul Button::before {
+  border: 2px solid #fff;
+  padding: 2px;
+  content: "";
+  position: absolute;
+  border-radius: inherit;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transition: all 0.25s ease;
 }
 
 .onboard ul Button {
@@ -70,9 +99,15 @@ body {
   border: 3px solid transparent;
 }
 
-.onboard ul Button:hover {
+#contactDiv .container #sent {
+  border: 3px solid blueviolet;
+  color: blueviolet;
+}
+
+#contactDiv .container #sent:hover {
+  background-color: blueviolet;
+  border: 3px solid blueviolet;
   color: white;
-  border-color: whitesmoke;
 }
 
 .onboard .footer {

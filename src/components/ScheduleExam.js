@@ -8,6 +8,8 @@ Radio
 } from '@material-ui/core';
 import {Link} from 'react-router-dom';
 import ExamContext from './context/examContext';
+import Navbar from './Navbar';
+import LeftNav from './LeftNav';
 
 const ScheduleExam = () => {
     const examContext = useContext(ExamContext);
@@ -32,6 +34,9 @@ const ScheduleExam = () => {
     }
 
     return (
+      <div>
+        <Navbar/>
+        <LeftNav/>
         <div className="workarea">
             
             <form onSubmit={onSubmit} className="ExamForm">
@@ -60,6 +65,7 @@ const ScheduleExam = () => {
               </tbody>
             </table>
             </form>
+        </div>
         </div>
     )
 }

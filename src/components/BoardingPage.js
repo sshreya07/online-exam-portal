@@ -18,12 +18,9 @@ const BoardingPage = () => {
               <Link to="/contact" style={{textDecoration:'none', fontWeight:'lighter'}}><Button variant="outlined">CONTACT</Button></Link>
               </li>
             </ul>
-            <div className="text" >
+            <div className="text">
               <h1>Online<br/> Exam Platform<br/> 
-                <ul style={{position:'relative', right:'11rem', top:'3rem'}}>
-                  <li> <Link to="/home" style={{textDecoration:'none'}}><Button variant="outlined">GET STARTED</Button></Link>
-                  </li>
-                </ul>
+              <Link to="/home" style={{textDecoration:'none',position:'relative',top:'3rem'}}><Button variant="outlined">GET STARTED</Button></Link>
               </h1>
              
             </div>

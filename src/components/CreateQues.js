@@ -10,7 +10,9 @@ import {
     CardContent,
     TextField,
     CardHeader
-} from '@material-ui/core'
+} from '@material-ui/core';
+import Navbar from './Navbar';
+import LeftNav from './LeftNav';
 
 const CreateQues = (totalQues) => {
     const [value,setValue] = React.useState(null);
@@ -28,6 +30,9 @@ const CreateQues = (totalQues) => {
     //   };
 
     return (
+      <div>
+        <Navbar/>
+        <LeftNav/>
       <div className="workarea">
         <div className="tabAlign">
         <Card>
@@ -54,6 +59,7 @@ const CreateQues = (totalQues) => {
           </CardContent>
         </Card>
         </div>
+      </div>
       </div>
     )
 }
