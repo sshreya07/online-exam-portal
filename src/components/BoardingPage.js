@@ -2,13 +2,16 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import {Button} from '@material-ui/core';
 import BackgroundImage from './iconNew.jpg';
-
+import { School } from '@material-ui/icons';
 
 
 const BoardingPage = () => {
     return (
         <div className="onboard">
             <ul>
+              <li style={{position:'relative', right:'55rem'}}>
+              <School htmlColor="white" style={{fontSize:'30px'}} ></School>&ensp;<span className="logo" style={{color:'white', fontWeight:'bold', fontSize:'16px',position:'relative',bottom:'8px'}}>EXAM PORTAL</span>
+              </li>
             <li>
               <Link to="/" style={{textDecoration:'none', fontWeight:'lighter'}}><Button variant="outlined">HOME</Button></Link>
               </li>
@@ -20,7 +23,7 @@ const BoardingPage = () => {
             </ul>
             <div className="text">
               <h1>Online<br/> Exam Platform<br/> 
-              <Link to="/dashboard" style={{textDecoration:'none',position:'relative',top:'3rem'}}><Button variant="outlined">GET STARTED</Button></Link>
+              <Link to="/login" style={{textDecoration:'none',position:'relative',top:'3rem'}}><Button variant="outlined">GET STARTED</Button></Link>
               </h1>
              
             </div>

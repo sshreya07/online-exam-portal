@@ -60,9 +60,9 @@ body {
 
 .onboard .text Button:hover {
   transform: translate(0, -5px);
-  -webkit-box-shadow: 0px 11px 25px 0px rgba(255, 0, 191, 0.52);
-  -moz-box-shadow: 0px 11px 25px 0px rgba(255, 0, 191, 0.52);
-  box-shadow: 0px 11px 25px 0px rgba(255, 0, 191, 0.52);
+  -webkit-box-shadow: 0px 11px 25px 0px rgba(255, 0, 191, 0.32);
+  -moz-box-shadow: 0px 11px 25px 0px rgba(255, 0, 191, 0.32);
+  box-shadow: 0px 11px 25px 0px rgba(255, 0, 191, 0.32);
   border-color: #ce06b3;
 }
 
@@ -280,4 +280,90 @@ body {
 .workarea .table .tableRows:hover {
   background-color: rgb(240, 240, 240);
   color: black;
+}
+
+/* .loginPage {
+  content: "";
+  position: absolute;
+  width: 2000px;
+  height: 2000px;
+  border-radius: 50%;
+  background-color: linear-gradient(-45deg, #448144, #04be04);
+  top: -10%;
+  right: 48%;
+  transform: translateY(-50%);
+} */
+
+.loginPage .login-section {
+  background-color: #250858;
+  background-image: linear-gradient(
+    135deg,
+    #250858 36%,
+    #3f0b5e 63%,
+    #530c90 91%
+  );
+  padding: 8px;
+  border-radius: 10px;
+  position: absolute;
+  top: 25%;
+  left: 65%;
+  -webkit-box-shadow: 0px 13px 30px 0px rgba(138, 138, 138, 0.2);
+  -moz-box-shadow: 0px 13px 30px 0px rgba(138, 138, 138, 0.2);
+  box-shadow: 0px 13px 30px 0px rgba(138, 138, 138, 0.2);
+}
+
+.loginPage .heading {
+  font-size: 30px;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.loginPage .input-section {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin-top: 1rem;
+  width: auto;
+}
+
+.loginPage .input-section div {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.loginPage .input-section Button {
+  border: 3px solid #530c90;
+  color: #530c90;
+  border-radius: 20px;
+}
+
+.loginPage .input-section Button:hover {
+  background-color: #530c90;
+  color: white;
+}
+
+.loginPage .input-section .input-bar {
+  margin-top: 1rem;
+}
+
+.loginPage .signup-section {
+  position: absolute;
+  top: 20%;
+  left: 65%;
+  -webkit-box-shadow: 0px 13px 30px 0px rgba(138, 138, 138, 0.2);
+  -moz-box-shadow: 0px 13px 30px 0px rgba(138, 138, 138, 0.2);
+  box-shadow: 0px 13px 30px 0px rgba(138, 138, 138, 0.2);
+  background-color: #250858;
+  background-image: linear-gradient(
+    135deg,
+    #250858 36%,
+    #3f0b5e 63%,
+    #530c90 91%
+  );
+  padding: 8px;
+  border-radius: 10px;
 }
