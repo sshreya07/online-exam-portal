@@ -28,7 +28,7 @@ const BoardingPage = () => {
              
             </div>
             <div style={{margin:'1.8rem 0 0 5.5rem',display:'flex',justifyContent:'flex-end'}}>
-              <img src={BackgroundImage} alt="online exam" />
+              <img src={BackgroundImage} alt="online exam" style={{borderRadius:"10%"}}/>
             </div>
                 
            <div className="footer">
