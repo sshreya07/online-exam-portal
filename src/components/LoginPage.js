@@ -8,7 +8,8 @@ import {
     FormControl,
 } from '@material-ui/core';
 import {Link} from 'react-router-dom';
-import { Lock, Person } from '@material-ui/icons';
+import { Lock, AlternateEmail } from '@material-ui/icons';
+import img from './backgroundNew.jpg';
 
 const LoginPage = () => {
     return (
@@ -16,10 +17,11 @@ const LoginPage = () => {
             <div className="onboard">
             <ul>
             <li>
-              <Link to="/signup" style={{textDecoration:'none', fontWeight:'lighter'}}><Button variant="outlined">Sign UP</Button></Link>
+              <Link to="/signup" style={{textDecoration:'none', fontWeight:'lighter'}}><Button variant="outlined">Register</Button></Link>
               </li>
              </ul>
             </div>
+            <div><img src={img} alt="books" className="BG"/></div>
             <div className="login-section">
 
                 <Card style={{width:'25rem', height:'22rem'}} variant="outlined">
@@ -30,10 +32,10 @@ const LoginPage = () => {
                         <div className="input-section">
                                 <FormControl>
                                     <TextField
-                            label="username"
+                            label="email"
                             className="input-bar"
                             InputProps={{
-                                startAdornment: <InputAdornment position="start"><Person></Person></InputAdornment>,
+                                startAdornment: <InputAdornment position="start"><AlternateEmail></AlternateEmail></InputAdornment>,
                             }}
                             variant="outlined"
                                 />
