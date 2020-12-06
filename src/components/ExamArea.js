@@ -1,15 +1,12 @@
 import React from 'react'
-import {
-  Button,
-  } from '@material-ui/core';
-import {Link} from 'react-router-dom';
+
+import ScheduleExam from './ScheduleExam';
 
 const ExamArea = () => {
 
     return (
         <div className="workarea">
-          <div className="createExamBtn"><Link to="/createExam" style={{textDecoration:'none'}}> <Button variant="contained">Create Question Bank</Button></Link></div>
-           <div className="tabAlign"></div>
+         <ScheduleExam/>
         </div>
     )
 }
