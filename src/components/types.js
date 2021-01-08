@@ -5,3 +5,5 @@ export const GET_DATE = "GET_DATE";
 export const GET_TIME = "GET_TIME";
 export const GET_DURATION = "GET_DURATION";
 export const GET_TOTALQUES = "GET_TOTALQUES";
+export const GET_TOTALMARKS = "GET_TOTALMARKS";
+export const GET_EXAMLIST = "GET_EXAMLIST";

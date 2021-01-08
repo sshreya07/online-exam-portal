@@ -12,6 +12,7 @@ import { Lock, AlternateEmail } from '@material-ui/icons';
 import img from './backgroundNew.jpg';
 
 const LoginPage = () => {
+
     return (
         <div className="loginPage">
             <div className="onboard">
@@ -24,12 +25,15 @@ const LoginPage = () => {
             <div><img src={img} alt="books" className="BG"/></div>
             <div className="login-section">
 
-                <Card style={{width:'25rem', height:'22rem'}} variant="outlined">
+                <Card style={{width:'25rem', height:'30rem'}} variant="outlined">
                     <CardContent >
                         <div className="heading" style={{color: '#530c90'}}>
                         Sign In
+                        </div><br/><br/>
+                        <div className="heading"><Button className="g-signin2" data-onsuccess="onSignIn2"></Button>
                         </div>
                         <div className="input-section">
+                            <span style={{textAlign:'center'}}><small>OR</small></span>
                                 <FormControl>
                                     <TextField
                             label="email"

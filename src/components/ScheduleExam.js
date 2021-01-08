@@ -21,6 +21,7 @@ const ScheduleExam = () => {
     const [time , setTime] = useState("");
     const [duration , setDuration] = useState("");
     const [totalQues , setTotalQues] = useState("");
+    const [totalMarks , setTotalMarks] = useState("");
 
     const onSubmit = (event) => {
       event.preventDefault();
@@ -31,6 +32,8 @@ const ScheduleExam = () => {
       examContext.getTime(time);
       examContext.getDuration(duration);
       examContext.getTotalQues(totalQues);
+      examContext.getTotalMarks(totalMarks);
+      examContext.AddExam();
     }
 
     return (
@@ -47,17 +50,19 @@ const ScheduleExam = () => {
                 <td><FormControl>
                       <FormControlLabel value="end" control={<Radio color="primary" />} label="Objective" />
                     </FormControl></td></tr>
-                <tr><td>Exam Name</td><td><TextField label="exam name" variant="outlined" size="small" type="text" align="right" value={examName} onChange={event => setExamName(event.target.value)} /></td></tr>
+                <tr><td>Exam Name</td><td><TextField label="exam name" variant="outlined" size="small" type="text" align="right" value={examName} onChange={event => setExamName(event.target.value.toString())} /></td></tr>
 
-                <tr><td>Course Name and Id</td><td><TextField id="standard-required" label="course name" variant="outlined" size="small" type="text" value={courseName} onChange={event => setCourseName(event.target.value)} /></td><td><TextField id="standard-required" label="id" variant="outlined" size="small" type="text" value={courseId} onChange={event => setCourseId(event.target.value)} /></td></tr>
+                <tr><td>Course Name and Id</td><td><TextField id="standard-required" label="course name" variant="outlined" size="small" type="text" value={courseName} onChange={event => setCourseName(event.target.value.toString())} /></td><td><TextField id="standard-required" label="id" variant="outlined" size="small" type="text" value={courseId} onChange={event => setCourseId(event.target.value)} /></td></tr>
 
-                <tr><td>Exam Date</td><td><TextField id="standard-required"  variant="outlined" size="small" type="date" value={date} onChange={event => setDate(event.target.value)} /></td></tr>
+                <tr><td>Exam Date</td><td><TextField id="standard-required"  variant="outlined" size="small" type="date" value={date} onChange={event => setDate(event.target.value.toString())} /></td></tr>
 
-                <tr><td>Start Time</td><td><TextField id="standard-required"  variant="outlined" size="small" type="time" value={time} onChange={event => setTime(event.target.value)} /><span style={{position: 'relative', top: '1rem', left:'.5rem'}}>24-hour Clock</span></td></tr>
+                <tr><td>Start Time</td><td><TextField id="standard-required"  variant="outlined" size="small" type="time" value={time} onChange={event => setTime(event.target.value.toString())} /><span style={{position: 'relative', top: '1rem', left:'.5rem'}}>24-hour Clock</span></td></tr>
 
-                <tr><td>Duration</td><td><TextField id="standard-required" label="total time" variant="outlined" size="small" type="text" value={duration} onChange={event => setDuration(event.target.value)} /><span style={{position: 'relative', top: '1rem', left:'.5rem'}}>minutes</span></td></tr>
+                <tr><td>Duration</td><td><TextField id="standard-required" label="total time" variant="outlined" size="small" type="text" value={duration} onChange={event => setDuration(event.target.value.toString())} /><span style={{position: 'relative', top: '1rem', left:'.5rem'}}>minutes</span></td></tr>
 
                 <tr><td>No of Questions</td><td><TextField id="standard-required" label="total Questions" variant="outlined" size="small" type="number" value={totalQues} onChange={event => setTotalQues(event.target.value)}/></td></tr>
+
+                <tr><td>Marks</td><td><TextField id="standard-required" label="total Marks" variant="outlined" size="small" type="number" value={totalMarks} onChange={event => setTotalMarks(event.target.value)}/></td></tr>
 
                 <span style={{position: 'relative', top: '3rem', left:'.5rem'}}><tr><td><Button type="submit" variant="outlined">Submit</Button></td></tr></span>
 

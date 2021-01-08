@@ -23,7 +23,8 @@ const BoardingPage = () => {
             </ul>
             <div className="text">
               <h1>Online<br/> Exam Platform<br/> 
-              <Link to="/login" style={{textDecoration:'none',position:'relative',top:'3rem'}}><Button variant="outlined">GET STARTED</Button></Link>
+              <Link to="/dashboard" style={{textDecoration:'none',position:'relative',top:'3rem',width:'auto'}}><Button variant="outlined">Login with <span className="g-signin2" data-onsuccess="onSignIn2" style={{position:'relative',left:'1rem'}}></span></Button></Link>
+              {/* <Button variant="outlined"><span className="g-signin2" data-onsuccess="signOut" style={{position:'relative',left:'1rem'}}></span></Button> */}
               </h1>
              
             </div>

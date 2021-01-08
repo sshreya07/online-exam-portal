@@ -24,7 +24,7 @@ const Navbar = () => {
                     </div>
                 </li>
                 <li>
-                    <Link to="/" style={{textDecoration: 'none'}}><Button variant="outlined" color="white"><ExitToAppRoundedIcon></ExitToAppRoundedIcon>&ensp;Logout</Button></Link>
+                    <Link to="/" style={{textDecoration: 'none'}}><Button variant="outlined" color="white" data-onsuccess="signOut"><ExitToAppRoundedIcon></ExitToAppRoundedIcon>&ensp;Logout</Button></Link>
                 </li>
             </ul>
         </div>

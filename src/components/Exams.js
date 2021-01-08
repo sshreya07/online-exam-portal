@@ -1,14 +1,14 @@
 import React, { Fragment } from 'react';
-import ExamArea from './ExamArea';
 import LeftNav from './LeftNav';
 import Navbar from './Navbar';
+import ScheduleExam from './ScheduleExam';
 
 const Exams = () => {
     return (
         <Fragment>
             <Navbar/>
             <LeftNav/>
-            <ExamArea/>
+            <ScheduleExam/>
         </Fragment>
     )
 }
