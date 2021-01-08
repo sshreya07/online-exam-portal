@@ -12,6 +12,7 @@ import LoginPage from './components/LoginPage';
 import SignupPage from './components/SignupPage';
 import About from './components/About';
 import Contact from './components/Contact';
+import AttendExam from './components/AttendExam';
 
 const App = () => {
   
@@ -30,6 +31,7 @@ const App = () => {
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/createExam" component={ScheduleExam}/>
             <Route exact path="/QuesBank" component={CreateQues}/>
+            <Route exact path="/attendExam" component={AttendExam}/>
           </Switch>
         </div>
       </Router>

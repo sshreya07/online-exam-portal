@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import Navbar from './Navbar';
 import LeftNav from './LeftNav';
+import {Link} from 'react-router-dom';
 
 const CreateQues = (totalQues) => {
     const [value,setValue] = React.useState(null);
@@ -49,7 +50,7 @@ const CreateQues = (totalQues) => {
                   <FormControlLabel value="D" control={<Radio />} label="D" /><Input type="text"/>
                 </RadioGroup>
               </FormControl></td></tr>
-              <td><Button variant="contained">Submit</Button></td>
+              <td><Link to="/dashboard" style={{textDecoration:'none'}}><Button variant="contained">Submit</Button></Link></td>
             </tbody>
           </table>
           </p>

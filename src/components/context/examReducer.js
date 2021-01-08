@@ -7,7 +7,9 @@ import {
     GET_TOTALQUES,
     GET_TOTALMARKS,
     GET_TIME,
-    GET_EXAMLIST
+    GET_EXAMLIST,
+    GET_QUESLIST
+
 } from '../types';
 
 export default(state,action) => {
@@ -56,6 +58,11 @@ export default(state,action) => {
             return{
                 ...state,
                 examList: action.payload
+            }
+        case GET_QUESLIST:
+            return{
+                ...state,
+                quesList: action.payload
             }
         default:
             return state

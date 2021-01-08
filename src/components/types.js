@@ -7,3 +7,5 @@ export const GET_DURATION = "GET_DURATION";
 export const GET_TOTALQUES = "GET_TOTALQUES";
 export const GET_TOTALMARKS = "GET_TOTALMARKS";
 export const GET_EXAMLIST = "GET_EXAMLIST";
+export const GET_QUESLIST = "GET_QUESLIST";
+   

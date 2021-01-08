@@ -12,6 +12,7 @@ import {
     GET_DURATION,
     GET_TOTALQUES,
     GET_EXAMLIST,
+    GET_QUESLIST,
     GET_TOTALMARKS
 } from '../types';
 
@@ -28,6 +29,7 @@ const ExamState = (props) => {
         courseId: '',
         totalMarks: '',
         examList: [],
+        quesList:[],
         // // monitoring: false,
         // // negativeMarking: false,
         // questions: [],
@@ -51,6 +53,17 @@ const ExamState = (props) => {
 
         dispatch({
             type: GET_EXAMLIST,
+            payload: res.data,
+          });
+    }
+
+    const getQuesList = async () => {
+        const res = await axios.get(
+            'https://localhost:44386/api/QuesTable'
+          );
+
+        dispatch({
+            type: GET_QUESLIST,
             payload: res.data,
           });
     }
@@ -136,6 +149,7 @@ const ExamState = (props) => {
         totalQues: state.totalQues,
         totalMarks: state.totalMarks,
         examList: state.examList,
+        quesList: state.quesList,
         getExamName,
         getCourseName,
         getCourseId,
@@ -145,6 +159,7 @@ const ExamState = (props) => {
         getTotalQues,
         getTotalMarks,
         getExamList,
+        getQuesList,
         AddExam
         }}>
             {props.children}

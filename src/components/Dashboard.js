@@ -44,13 +44,14 @@ const Dashboard = () => {
                 <div style={gridGap}>
                             {examList.map(data => (
                                 <Card style={cardHeight} ><CardContent>
-                              <div>{data.examName}<br/>
+                              <div><h4 style={{color:'#530c90', textAlign:'center'}}><strong>{data.examName}</strong></h4>
                               {data.courseName}<br/>
                               {data.course_ID}<br/>
-                              {data.DOE} <br/>
+                              {data.DOE}<br/>
                               {data.startTime}<br/>
                               {data.duration}<br/>
-                              </div>
+                              </div><br/>
+                              <div className="createExamBtn"><Link to="/attendExam" style={{textDecoration:'none',position:'relative',top:'3rem'}}> <Button variant="contained">Attend Exam</Button></Link></div>
                         </CardContent></Card>
 
                             ))}
@@ -104,5 +105,7 @@ const gridGap = {
   };
 
 const cardHeight = {
-    height: "20rem"
+    height: "20rem",
+    fontSize: "20px",
+    letterSpacing: "2px"
 }
