@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, useEffect} from 'react';
 import Navbar from './Navbar';
 import LeftNav from './LeftNav';
 import {
@@ -10,6 +10,30 @@ import Avatar from "./yogocat_animation.gif";
 import {Link} from 'react-router-dom';
 
 const Profile = () => {
+    
+  let username = '';
+  let email = '';
+  let ImgUrl = '';
+
+    useEffect(() => {
+        username = sessionStorage.getItem('name');
+        email = sessionStorage.getItem('email');
+        ImgUrl = sessionStorage.getItem('imgUrl');
+        console.log(username);
+        console.log(email);
+        console.log(ImgUrl);
+        setprofile(username,email,ImgUrl);
+    }, []);
+
+    const setprofile = (name,email,url) => {
+        
+        document.getElementById("username").innerHTML = name;
+        // document.getElementById("email").innerHTML = email;
+        // document.getElementById("avatar").innerHTML = url;
+    }
+
+    
+
     return (
         <Fragment>
             <Navbar/>
@@ -19,19 +43,18 @@ const Profile = () => {
 
                 <div className="tabAlign">
                 <div style={{display: "grid", gridTemplateColumns: "repeat(3,1fr)", gridGap: "5rem"}}>
-                    <img src={Avatar} alt="avatar" style={{width:"20rem", height:"20rem", borderRadius:"50%", border:"2px solid black"}} />
+                    <img src={ImgUrl} alt="avatar" id="avatar" style={{width:"20rem", height:"20rem", borderRadius:"50%", border:"2px solid black"}} />
                     <div style={{padding:"1rem 0"}}>
-                        <div style={{padding:"1rem", fontSize:"22px", fontWeight:"bold"}}>John Doe
-                            <div style={styling}>John123</div>
-                            <div style={styling}>john@gmail.com</div>
+                        <div style={{padding:"1rem", fontSize:"22px", fontWeight:"bold"}} id="username">
+                            <div style={styling} id="email"></div>
                         </div>
                     </div>
                 </div><br/><br/>
-                <div style={gridGap}>
-                    <Card style={{height: "20rem"}}><CardContent>done</CardContent></Card>
+                {/* <div style={gridGap}>
+                    <Card style={{height: "20rem"}}><CardContent></CardContent></Card>
                     <Card><CardContent>done</CardContent></Card>
                     <Card><CardContent>done</CardContent></Card>
-                </div>
+                </div> */}
                 </div>
             </div>
         </Fragment>

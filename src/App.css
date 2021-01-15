@@ -52,8 +52,8 @@ body {
 }
 
 .onboard .text Button {
-  background-color: #ce06b3;
-  color: whitesmoke;
+  background-color: #e7e7e7;
+  color: black;
   border: 3px solid transparent;
   font-weight: bold;
   transition: all 0.25s ease;
@@ -61,10 +61,10 @@ body {
 
 .onboard .text Button:hover {
   transform: translate(0, -5px);
-  -webkit-box-shadow: 0px 11px 25px 0px rgba(255, 0, 191, 0.32);
-  -moz-box-shadow: 0px 11px 25px 0px rgba(255, 0, 191, 0.32);
-  box-shadow: 0px 11px 25px 0px rgba(255, 0, 191, 0.32);
-  border-color: #ce06b3;
+  -webkit-box-shadow: 0px 11px 25px 0px rgba(255, 249, 254, 0.32);
+  -moz-box-shadow: 0px 11px 25px 0px rgba(243, 243, 243, 0.32);
+  box-shadow: 0px 11px 25px 0px rgba(235, 235, 235, 0.32);
+  border-color: #e7e7e7;
 }
 
 .onboard ul Button:hover {

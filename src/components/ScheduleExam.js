@@ -10,6 +10,7 @@ import {Link} from 'react-router-dom';
 import ExamContext from './context/examContext';
 import Navbar from './Navbar';
 import LeftNav from './LeftNav';
+// import Axios from 'axios';
 
 const ScheduleExam = () => {
     const examContext = useContext(ExamContext);
@@ -33,7 +34,20 @@ const ScheduleExam = () => {
       examContext.getDuration(duration);
       examContext.getTotalQues(totalQues);
       examContext.getTotalMarks(totalMarks);
-      examContext.AddExam();
+      const obj = {
+        examName: examName,
+        courseName: courseName,
+        courseId: courseId,
+        date: date,
+        time: time,
+        duration: duration,
+        totalQues: totalQues,
+        totalMarks: totalMarks
+      }
+      console.log(obj);
+      // Axios.post("http://localhost/examportal/insert.php",obj)
+      // .then(res=>console.log(res.data));
+      // examContext.AddExam(obj);
     }
 
     return (

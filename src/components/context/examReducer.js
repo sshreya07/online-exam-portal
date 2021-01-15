@@ -8,7 +8,10 @@ import {
     GET_TOTALMARKS,
     GET_TIME,
     GET_EXAMLIST,
-    GET_QUESLIST
+    GET_QUESLIST,
+    GET_USERNAME,
+    GET_EMAIL,
+    GET_URL
 
 } from '../types';
 
@@ -64,6 +67,22 @@ export default(state,action) => {
                 ...state,
                 quesList: action.payload
             }
+        case GET_USERNAME:
+            return{
+                ...state,
+                username: action.payload
+            }
+        case GET_EMAIL:
+            return{
+                ...state,
+                email: action.payload
+            }
+        case GET_URL:
+            return{
+                ...state,
+                imgUrl: action.payload
+            }
+
         default:
             return state
     }

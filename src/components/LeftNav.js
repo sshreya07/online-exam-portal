@@ -8,9 +8,9 @@ const LeftNav = () => {
             <ul>
                 <li><Link to="/dashboard" style={{textDecoration:'none'}}><Button variant="contained">Dashboard</Button></Link></li>
             </ul>
-            <ul>Personal
+            <ul>
                 <li><Link to="/createExam" style={{textDecoration:'none'}}><Button variant="contained">Exams</Button></Link></li>
-                <li><Link to="/profile" style={{textDecoration:'none'}}><Button variant="contained">Profile</Button></Link></li>
+                {/* <li><Link to="/profile" style={{textDecoration:'none'}}><Button variant="contained">Profile</Button></Link></li> */}
 
             </ul>
       </div>

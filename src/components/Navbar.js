@@ -6,8 +6,28 @@ import avatar from './yogocat_animation.gif';
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 import { Button } from '@material-ui/core';
 import {Link} from 'react-router-dom';
+import gapi from 'react-google-login';
 
 const Navbar = () => {
+
+//     const responseGoogle = (res) => {
+// console.log(res);
+// console.log(res.profileObj);
+//     }
+
+let username = sessionStorage.getItem('name');
+let email = sessionStorage.getItem('email');
+let ImgUrl = sessionStorage.getItem('imgUrl');
+
+
+const signOut = () => {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+    sessionStorage.clear();
+  }
+
     return (
         <div className="navbar">
             <div className="title"><img src={logo} alt="logo" id="logoImg"></img>&ensp;<span className="logo">EXAM PORTAL</span></div>
@@ -15,16 +35,16 @@ const Navbar = () => {
                 {/* <li><SearchIcon></SearchIcon></li>
                 <li><Badge color="error" invisible="true" showZero="false" overlap="circle" badgeContent={6}></Badge><NotificationsIcon></NotificationsIcon></li> */}
                 <li>
-                    <div id="avatar" className="title">
-                        <img src={avatar} alt="avatar" id="avatarImg"></img>
-                        <span className="logo" id="avatarText">
-                            <div id="name" style={{letterSpacing:"0px", fontWeight:"normal", fontSize:"16px"}}>John Doe</div>
-                            <div id="profession" style={{fontSize:"10px"}}>Student</div>
-                        </span>
-                    </div>
+                    
                 </li>
                 <li>
-                    <Link to="/" style={{textDecoration: 'none'}}><Button variant="outlined" color="white" data-onsuccess="signOut"><ExitToAppRoundedIcon></ExitToAppRoundedIcon>&ensp;Logout</Button></Link>
+                    <div style={{display:"flex",flexDirection:'row'}}><div><img src={ImgUrl} alt="avatar"  style={{width:"2rem", height:"2rem", borderRadius:"50%"}}/>&ensp;</div>
+                    <div >{username}
+                    <div>{email}
+                        </div></div></div>
+                </li>
+                <li>
+                    <Link to="/" style={{textDecoration: 'none'}}><Button variant="outlined" color="white" ><ExitToAppRoundedIcon></ExitToAppRoundedIcon>&ensp;Logout</Button></Link>
                 </li>
             </ul>
         </div>

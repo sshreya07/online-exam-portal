@@ -8,4 +8,7 @@ export const GET_TOTALQUES = "GET_TOTALQUES";
 export const GET_TOTALMARKS = "GET_TOTALMARKS";
 export const GET_EXAMLIST = "GET_EXAMLIST";
 export const GET_QUESLIST = "GET_QUESLIST";
-   
+
+export const GET_USERNAME = "GET_USERNAME";
+export const GET_EMAIL = "GET_EMAIL";
+export const GET_URL = "GET_URL";   

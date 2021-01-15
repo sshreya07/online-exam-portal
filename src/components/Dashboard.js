@@ -11,26 +11,46 @@ import {Link} from 'react-router-dom';
 import Navbar from "./Navbar";
 import LeftNav from "./LeftNav";
 import ExamContext from "./context/examContext";
+import ExamList from './examList';
 
 const Dashboard = () => {
     const examContext = useContext(ExamContext);
 
-    const { getExamList, examList } = examContext;
+    // const { getExamList, examList } = examContext;
+
+    let availableExams = [];
 
     useEffect(() => {
-        getExamList();
-        console.log(examList);
+        // getExamList();
+        // console.log(examList);
         //eslint-disable-next-line
+        setAvailableExams();
+        // getExamList();
+        console.log({ExamList});
       }, []);
 
-    // state = {
-    //     examList: []
-    // };
+    const setAvailableExams = () => {
+        for (let index = 0; index < ExamList.length; index++) {
+            availableExams.push(ExamList[index]);    
+            // console.log(availableExams);          
+        }
+    }
 
-    // async componentDidMount(){
-    //     const res = await axios.get('https://localhost:44386/api/ExamTable');
-    //     this.setState({ examList: res.data});
-    //     console.log(this.examList);
+    // const getExamList = () => {
+    //     const listLength = availableExams.length;
+
+    //     for (let i = 0; i < listLength; i++) {
+    //         let currentExam = availableExams[i];
+    //     document.getElementById("examname").innerHTML = currentExam.examName;
+    //     document.getElementById("coursename").innerHTML = currentExam.courseName;
+    //     document.getElementById("courseid").innerHTML = currentExam.courseID;
+    //     document.getElementById("date").innerHTML = currentExam.date;
+    //     document.getElementById("time").innerHTML = currentExam.startTime;
+    //     document.getElementById("duration").innerHTML = currentExam.duration;
+    //     document.getElementById("marks").innerHTML = currentExam.totalMarks;
+
+
+    //     }
     // }
 
     return (
@@ -42,16 +62,38 @@ const Dashboard = () => {
                 
                 <div className="tabAlign">
                 <div style={gridGap}>
-                            {examList.map(data => (
+                   {/* {{availableExams}.forEach(data => { */}
+                       {/* <Card style={cardHeight} ><CardContent>
+                       <div id="examlist">
+                           <h4 id="examname"></h4>
+                           <div id="coursename"></div>
+                           <div id="courseid"></div>
+                           <div id="date"></div>
+                           <div id="time"></div>
+                           <div id="duration"></div>
+                           <div id="marks"></div> */}
+                           {/* <h4 style={{color:'#530c90', textAlign:'center'}}><strong>{data.examName}</strong></h4>
+                       {data.courseName}<br/>
+                       {data.courseID}<br/>
+                       {data.date}<br/>
+                       {data.startTime}<br/>
+                       {data.duration}<br/> */}
+                       {/* </div><br/>
+                       <div className="createExamBtn"><Link to="/attendExam" style={{textDecoration:'none',position:'relative',top:'3rem'}}> <Button variant="contained" >Attend Exam</Button></Link>
+                       </div>
+                 </CardContent></Card> */}
+                        
+                    {/* // })}; */}
+                            {ExamList.map(data => (
                                 <Card style={cardHeight} ><CardContent>
                               <div><h4 style={{color:'#530c90', textAlign:'center'}}><strong>{data.examName}</strong></h4>
                               {data.courseName}<br/>
-                              {data.course_ID}<br/>
-                              {data.DOE}<br/>
+                              {data.courseID}<br/>
+                              {data.date}<br/>
                               {data.startTime}<br/>
                               {data.duration}<br/>
                               </div><br/>
-                              <div className="createExamBtn"><Link to="/attendExam" style={{textDecoration:'none',position:'relative',top:'3rem'}}> <Button variant="contained">Attend Exam</Button></Link></div>
+                              <div className="createExamBtn"><Link to="/attendExam" style={{textDecoration:'none',position:'relative',top:'3rem'}}> <Button variant="contained" id={data.examID}>Attend Exam</Button></Link></div>
                         </CardContent></Card>
 
                             ))}

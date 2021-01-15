@@ -13,7 +13,10 @@ import {
     GET_TOTALQUES,
     GET_EXAMLIST,
     GET_QUESLIST,
-    GET_TOTALMARKS
+    GET_TOTALMARKS,
+    GET_USERNAME,
+    GET_EMAIL,
+    GET_URL
 } from '../types';
 
 const ExamState = (props) => {
@@ -30,6 +33,9 @@ const ExamState = (props) => {
         totalMarks: '',
         examList: [],
         quesList:[],
+        username: '',
+        email: '',
+        imgUrl: '',
         // // monitoring: false,
         // // negativeMarking: false,
         // questions: [],
@@ -48,7 +54,7 @@ const ExamState = (props) => {
 
     const getExamList = async () => {
         const res = await axios.get(
-            'https://localhost:44386/api/ExamTable'
+           '../examList.json'
           );
 
         dispatch({
@@ -68,14 +74,10 @@ const ExamState = (props) => {
           });
     }
 
-    const AddExam = async () => {
-
-        const data = {
-            initialState
-        }
+    const AddExam = async (obj) => {
 
         const res = await axios.post(
-            'https://localhost:44386/api/ExamTable', data
+            'https://localhost:44386/api/ExamTable', obj
           );
 
         console.log(res.data);
@@ -137,6 +139,27 @@ const ExamState = (props) => {
         });
     }
 
+    const getUsername = (text) => {
+        dispatch({ 
+            type: GET_USERNAME, 
+            payload: {text},
+        });
+    }
+
+    const getEmail = (text) => {
+        dispatch({ 
+            type: GET_EMAIL, 
+            payload: {text},
+        });
+    }
+
+    const getImgUrl = (text) => {
+        dispatch({ 
+            type: GET_URL, 
+            payload: {text},
+        });
+    }
+
     return (
         <ExamContext.Provider 
         value={{examType:state.examType,
@@ -150,6 +173,9 @@ const ExamState = (props) => {
         totalMarks: state.totalMarks,
         examList: state.examList,
         quesList: state.quesList,
+        username: state.username,
+        email: state.email,
+        imgUrl: state.imgUrl,
         getExamName,
         getCourseName,
         getCourseId,
@@ -160,6 +186,9 @@ const ExamState = (props) => {
         getTotalMarks,
         getExamList,
         getQuesList,
+        getUsername,
+        getEmail,
+        getImgUrl,
         AddExam
         }}>
             {props.children}
