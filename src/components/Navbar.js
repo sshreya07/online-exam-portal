@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from './logo.png';
-import avatar from './yogocat_animation.gif';
+// import avatar from './yogocat_animation.gif';
 // import NotificationsIcon from '@material-ui/icons/Notifications';
 // import SearchIcon from '@material-ui/icons/Search';
 import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';

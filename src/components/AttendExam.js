@@ -17,6 +17,7 @@ const AttendExam = () => {
 
     let availableQues = [];
     let availableOpt = [];
+    let totalOpt = [];
     let quesCounter = 0; 
     let currentQues = '';
     let optIndex = '';
@@ -55,11 +56,12 @@ const AttendExam = () => {
 
         for(let i=0; i<optionLen ;i++){
           availableOpt.push(i);
-          // console.log(availableOpt);
+          totalOpt.push(i);
+          console.log(totalOpt);
 
         }
 
-        // document.getElementById("0").innerHTML = currentQues.options[0] ;
+        //   document.getElementById("0").innerHTML = currentQues.options[0] ;
         //   document.getElementById("1").innerHTML = currentQues.options[1] ;
         //   document.getElementById("2").innerHTML = currentQues.options[2] ;
         //   document.getElementById("3").innerHTML = currentQues.options[3] ;
@@ -70,28 +72,34 @@ const AttendExam = () => {
           const index2 = availableOpt.indexOf(optionIndex);
           availableOpt.splice(index2,1);
 
+          const span = document.createElement("span");
           const option = document.createElement("input");
           option.type = 'button';
           option.value = currentQues.options[optionIndex];
           option.id = optionIndex;
+          span.id= optionIndex;
           option.style.padding = "2rem 4rem";
           option.style.border = "none";
           option.style.fontSize = "20px";
-          document.getElementById("quesOption").appendChild(option); 
+          document.getElementById("quesOption").appendChild(span); 
+          document.getElementById(`${span.id}`).appendChild(option);
 
-          // option.setAttribute('onclick',getResult(optionIndex));
+          span.setAttribute('onclick',"getResult(optionIndex)");
 
-          option.addEventListener('click',getResult);
-          if(option.onClick === true){
-          option.onClick = getResult(optionIndex);
-          }
+          // option.addEventListener('click',getResult);
 
-          // option.onClick = getResult(optionIndex);
+          // option.onClick = getResult;
 
         }
 
+        // document.getElementById("0").addEventListener('click',getResult);
+
         quesCounter++;     
       }
+
+      // function getResult(){
+
+      // }
 
       const getResult = (optionElement) => {
           console.log(optionElement);
