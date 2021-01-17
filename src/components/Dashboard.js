@@ -87,11 +87,12 @@ const Dashboard = () => {
                             {ExamList.map(data => (
                                 <Card style={cardHeight} ><CardContent>
                               <div><h4 style={{color:'#530c90', textAlign:'center'}}><strong>{data.examName}</strong></h4>
-                              {data.courseName}<br/>
-                              {data.courseID}<br/>
-                              {data.date}<br/>
-                              {data.startTime}<br/>
-                              {data.duration}<br/>
+                              course: <span style={{textAlign:'center'}}>{data.courseName}</span><br/>
+                              code: <span style={{textAlign:'center'}}>{data.courseID}</span><br/>
+                              exam date: <span style={{textAlign:'center'}}>{data.date}</span><br/>
+                              time: <span style={{textAlign:'center'}}>{data.startTime}</span><br/>
+                              duration:<span style={{textAlign:'center'}}>{data.duration}</span> <br/>
+                              marks: <span style={{textAlign:'center'}}>{data.totalMarks}</span><br/>
                               </div><br/>
                               <div className="createExamBtn"><Link to="/attendExam" style={{textDecoration:'none',position:'relative',top:'3rem'}}> <Button variant="contained" id={data.examID}>Attend Exam</Button></Link></div>
                         </CardContent></Card>
@@ -149,5 +150,5 @@ const gridGap = {
 const cardHeight = {
     height: "20rem",
     fontSize: "20px",
-    letterSpacing: "2px"
+    letterSpacing: "2px",
 }

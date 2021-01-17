@@ -20,7 +20,8 @@ const AttendExam = () => {
     let totalOpt = [];
     let quesCounter = 0; 
     let currentQues = '';
-    let optIndex = '';
+    let score = 0;
+    let count = 0;
 
     useEffect(() => {
         // getQuesList();
@@ -57,7 +58,7 @@ const AttendExam = () => {
         for(let i=0; i<optionLen ;i++){
           availableOpt.push(i);
           totalOpt.push(i);
-          console.log(totalOpt);
+          // console.log(totalOpt);
 
         }
 
@@ -72,19 +73,16 @@ const AttendExam = () => {
           const index2 = availableOpt.indexOf(optionIndex);
           availableOpt.splice(index2,1);
 
-          const span = document.createElement("span");
           const option = document.createElement("input");
           option.type = 'button';
           option.value = currentQues.options[optionIndex];
           option.id = optionIndex;
-          span.id= optionIndex;
           option.style.padding = "2rem 4rem";
           option.style.border = "none";
           option.style.fontSize = "20px";
-          document.getElementById("quesOption").appendChild(span); 
-          document.getElementById(`${span.id}`).appendChild(option);
+          document.getElementById("quesOption").appendChild(option); 
 
-          span.setAttribute('onclick',"getResult(optionIndex)");
+          // option.setAttribute('onclick',"{getResult}");
 
           // option.addEventListener('click',getResult);
 
@@ -92,24 +90,67 @@ const AttendExam = () => {
 
         }
 
-        // document.getElementById("0").addEventListener('click',getResult);
+        document.getElementById("0").addEventListener('click',getResult0);
+        document.getElementById("1").addEventListener('click',getResult1);
+        document.getElementById("2").addEventListener('click',getResult2);
+        document.getElementById("3").addEventListener('click',getResult3);
+
+        // getAns();
 
         quesCounter++;     
       }
 
-      // function getResult(){
-
-      // }
-
-      const getResult = (optionElement) => {
-          console.log(optionElement);
-          const id = parseInt(optionElement);
+      const getResult0 = () => {
+          console.log(0);
+          const id = 0;
           if(id === currentQues.answer){
             console.log("correct");
+            count++;
+            score += 5;
           }else{
             console.log("wrong");
           }
       }
+
+        const getResult1 = () => {
+          console.log(1);
+          const id = 1;
+          if(id === currentQues.answer){
+            console.log("correct");
+            count++;
+            score += 5;
+          }else{
+            console.log("wrong");
+          }
+      }
+
+        const getResult2 = () => {
+          console.log(2);
+          const id = 2;
+          if(id === currentQues.answer){
+            console.log("correct");
+            count++;
+            score += 5;
+          }else{
+            console.log("wrong");
+          }
+      }
+
+      const getResult3 = () => {
+        console.log(3);
+        const id = 3;
+        if(id === currentQues.answer){
+          console.log("correct");
+          count++;
+          score += 5;
+        }else{
+          console.log("wrong");
+        }
+    }
+
+      // const getAns = () => {
+      //   document.getElementById("0").onclick = getResult ;
+      // }
 
       const Next = () => {
         document.getElementById("quesOption").innerHTML = '';
@@ -127,9 +168,11 @@ const AttendExam = () => {
       }
 
       const examOver = () => {
-        document.getElementById("quesText").innerHTML = "<br/><br/>Woohoo exam DONE!<br/><br/><br/> Your total Marks";
+        document.getElementById("quesText").innerHTML = "<br/><br/>Woohoo exam DONE!<br/><br/><br/> You answered <br/> <strong>" + (count) + " </strong><br/>question(s) correct <br/><br/><br/>Your total Marks " + (score);
         document.getElementById("next").style.display = 'none';
         document.getElementById("quesNumber").style.display = 'none';
+        // document.getElementById("result").innerHTML = 'you have answered ' + {count} + ' questions correct' + "<br>/" + 'your total score ' + {score} ;
+
       }
 
 
@@ -150,7 +193,7 @@ const AttendExam = () => {
                                   <Button variant="contained" id="3" className="op4" onClick={getResult(this)}></Button> */}
                                 </div>
                             </FormControl>
-                            
+                            <div id="result"></div>
                             <div><Button variant="contained" onClick={Next} style={{position:'relative',top:'4rem',left:'20rem'}} id="next">Next</Button></div>
                               </div>
                         </CardContent></Card>
