@@ -255,6 +255,11 @@ body {
   color: white;
 }
 
+.workarea input:hover {
+  background-color: #1f4068;
+  color: white;
+}
+
 .workarea .table {
   float: left;
   width: 900px;
@@ -383,4 +388,9 @@ body {
 .loginPage .BG {
   position: absolute;
   top: 20%;
+}
+
+.notfound .notfoundDiv #notfoundBtn:hover {
+  background-color: #530c90;
+  color: white;
 }

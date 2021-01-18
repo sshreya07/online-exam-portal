@@ -22,6 +22,7 @@ const AttendExam = () => {
     let currentQues = '';
     let score = 0;
     let count = 0;
+    let percent = 0;
 
     useEffect(() => {
         // getQuesList();
@@ -77,16 +78,10 @@ const AttendExam = () => {
           option.type = 'button';
           option.value = currentQues.options[optionIndex];
           option.id = optionIndex;
-          option.style.padding = "2rem 4rem";
+          option.style.padding = "2rem 10rem";
           option.style.border = "none";
-          option.style.fontSize = "20px";
+          option.style.fontSize = "24px";
           document.getElementById("quesOption").appendChild(option); 
-
-          // option.setAttribute('onclick',"{getResult}");
-
-          // option.addEventListener('click',getResult);
-
-          // option.onClick = getResult;
 
         }
 
@@ -94,8 +89,6 @@ const AttendExam = () => {
         document.getElementById("1").addEventListener('click',getResult1);
         document.getElementById("2").addEventListener('click',getResult2);
         document.getElementById("3").addEventListener('click',getResult3);
-
-        // getAns();
 
         quesCounter++;     
       }
@@ -106,10 +99,16 @@ const AttendExam = () => {
           if(id === currentQues.answer){
             console.log("correct");
             count++;
-            score += 5;
+            score += 5;          
           }else{
             console.log("wrong");
           }
+          document.getElementById("0").style.backgroundColor = '#1f4068';
+          document.getElementById("0").style.color = '#fff';
+          document.getElementById("1").disabled = true;
+          document.getElementById("2").disabled = true;
+          document.getElementById("3").disabled = true;
+
       }
 
         const getResult1 = () => {
@@ -122,6 +121,11 @@ const AttendExam = () => {
           }else{
             console.log("wrong");
           }
+          document.getElementById("1").style.backgroundColor = '#1f4068';
+          document.getElementById("1").style.color = '#fff';
+          document.getElementById("0").disabled = true;
+          document.getElementById("2").disabled = true;
+          document.getElementById("3").disabled = true;
       }
 
         const getResult2 = () => {
@@ -134,6 +138,11 @@ const AttendExam = () => {
           }else{
             console.log("wrong");
           }
+          document.getElementById("2").style.backgroundColor = '#1f4068';
+          document.getElementById("2").style.color = '#fff';
+          document.getElementById("0").disabled = true;
+          document.getElementById("1").disabled = true;
+          document.getElementById("3").disabled = true;
       }
 
       const getResult3 = () => {
@@ -146,15 +155,17 @@ const AttendExam = () => {
         }else{
           console.log("wrong");
         }
+        document.getElementById("3").style.backgroundColor = '#1f4068';
+        document.getElementById("3").style.color = '#fff';
+        document.getElementById("0").disabled = true;
+        document.getElementById("1").disabled = true;
+        document.getElementById("2").disabled = true;
     }
-
-      // const getAns = () => {
-      //   document.getElementById("0").onclick = getResult ;
-      // }
 
       const Next = () => {
         document.getElementById("quesOption").innerHTML = '';
         if(quesCounter === (quiz.length-1)){
+          percent = (score/(quiz.length*5))*100;
           document.getElementById("next").innerHTML = "submit";
           document.getElementById("next").onclick = function(){
             examOver();
@@ -162,16 +173,23 @@ const AttendExam = () => {
         }
         if(quesCounter === quiz.length){
           console.log("exam over");
+          percent = (score/(quiz.length*5))*100;
         }else{
           getNewQues();
         }
       }
 
       const examOver = () => {
-        document.getElementById("quesText").innerHTML = "<br/><br/>Woohoo exam DONE!<br/><br/><br/> You answered <br/> <strong>" + (count) + " </strong><br/>question(s) correct <br/><br/><br/>Your total Marks " + (score);
+        if(percent>=40||(quiz.length/count)>='40%'){
+        document.getElementById("quesText").innerHTML = "<br/><br/>Woohoo exam DONE!<br/><br/><br/>";
+        document.getElementById("result").innerHTML = "<h4> You answered <br/> <strong>" + (count) + " </strong> question(s) correct <br/><br/><br/>Your total Marks <strong>" + (score) + "</strong></h4>";
+        }else{
+          document.getElementById("quesText").innerHTML = "<br/><br/>Study Hard!<br/><br/><br/>";
+          document.getElementById("result").innerHTML = " <h4>You answered <br/> <strong>" + (count) + " </strong> question(s) correct <br/><br/><br/>Your total Marks <strong>" + (score) + " </strong></h4>";
+        }
         document.getElementById("next").style.display = 'none';
-        document.getElementById("quesNumber").style.display = 'none';
-        // document.getElementById("result").innerHTML = 'you have answered ' + {count} + ' questions correct' + "<br>/" + 'your total score ' + {score} ;
+        document.getElementById("result").style.position = 'relative';
+        document.getElementById("result").style.bottom = '3rem';
 
       }
 
@@ -181,21 +199,23 @@ const AttendExam = () => {
             <Navbar/>
             <div className="workarea">
                 <div className="tabAlign">
-                <div >
-                                <Card style={cardHeight} ><CardContent>
-                              <div><h4 style={{color:'#530c90',textAlign:"center"}} id="quesNumber"></h4>
-                            <h3 id="quesText" style={{textAlign:"center"}}></h3>
-                            <FormControl component="fieldset" >
-                                <div id="quesOption" style={gridGapOpt}>
+                <div className="card">
+                      <Card style={cardHeight} ><CardContent>
+                        <div id="cardContent">
+                          <div className="navbar" style={{paddingBlock:'1rem'}}><h3 style={{color:'#fff',position:'relative',left:'2rem'}} id="quesNumber"></h3></div>
+                            <div><h2 id="quesText" style={{textAlign:"center"}}></h2></div>
+                            <FormControl component="fieldset" ><br/>
+                                <div id="quesOption" style={gridGapOpt} >
                                   {/* <Button variant="contained" id="0" className="op1" onClick={getResult(this)}></Button>
                                   <Button variant="contained" id="1" className="op2" onClick={getResult(this)}></Button>
                                   <Button variant="contained" id="2" className="op3" onClick={getResult(this)}></Button>
                                   <Button variant="contained" id="3" className="op4" onClick={getResult(this)}></Button> */}
                                 </div>
                             </FormControl>
-                            <div id="result"></div>
-                            <div><Button variant="contained" onClick={Next} style={{position:'relative',top:'4rem',left:'20rem'}} id="next">Next</Button></div>
+                            <div id="result" style={{textAlign:'center'}}></div>
+                            <div><Button variant="contained" onClick={Next} style={{position:'relative',top:'4rem',left:'48rem'}} id="next">Next</Button></div>
                               </div>
+                              <div id="footer"></div>
                         </CardContent></Card>
                 </div>
                 </div>
@@ -206,25 +226,21 @@ const AttendExam = () => {
 
 export default AttendExam;
 
-const gridGap = {
-    display: "grid",
-    gridTemplateColumns: "repeat(3,1fr)",
-    gridGap: "2rem",
-  };
-
   const gridGapOpt = {
     display: "grid",
     gridTemplateColumns: "repeat(2,2fr)",
     gridGap: "3rem",
     position: "relative",
-    left: "2rem"
+    left: "6.5rem",
   };
 
 const cardHeight = {
-    height: "30rem",
+    height: "40rem",
+    width:'auto',
     fontSize: "20px",
     letterSpacing: "2px",
-    width: "30rem",
+    // width: "30rem",
     position:"relative",
-    left:"15%"
+    right:"5%",
+    bottom: '2rem',
 }

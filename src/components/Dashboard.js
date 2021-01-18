@@ -148,7 +148,8 @@ const gridGap = {
   };
 
 const cardHeight = {
-    height: "20rem",
+    // height: "20rem",
+    height: 'auto',
     fontSize: "20px",
     letterSpacing: "2px",
 }

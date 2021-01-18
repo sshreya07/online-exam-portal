@@ -13,6 +13,7 @@ import SignupPage from './components/SignupPage';
 import About from './components/About';
 import Contact from './components/Contact';
 import AttendExam from './components/AttendExam';
+import NotFound from './components/NotFound';
 
 const App = () => {
   
@@ -32,6 +33,7 @@ const App = () => {
             <Route exact path="/createExam" component={ScheduleExam}/>
             <Route exact path="/QuesBank" component={CreateQues}/>
             <Route exact path="/attendExam" component={AttendExam}/>
+            <Route component={NotFound}/>
           </Switch>
         </div>
       </Router>
