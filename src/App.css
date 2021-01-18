@@ -255,7 +255,7 @@ body {
   color: white;
 }
 
-.workarea input:hover {
+.workarea button:hover {
   background-color: #1f4068;
   color: white;
 }

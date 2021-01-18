@@ -1,4 +1,4 @@
-import React, { Fragment, useContext,useEffect } from 'react'
+import React, { Fragment,useEffect } from 'react'
 import {
 Button,
   Card,
@@ -6,7 +6,7 @@ Button,
     FormControl,
 } from '@material-ui/core';
 import Navbar from "./Navbar";
-import quiz from './question';
+import quiz from './quiz2';
 
 const AttendExam = () => {
 
@@ -72,7 +72,7 @@ const AttendExam = () => {
           const option = document.createElement("button");
           option.innerHTML = currentQues.options[optionIndex];
           option.id = optionIndex;
-          option.style.padding = "2rem 10rem";
+          option.style.padding = "2rem 5rem";
           option.style.border = "none";
           option.style.fontSize = "24px";
           document.getElementById("quesOption").appendChild(option); 
@@ -198,7 +198,7 @@ const AttendExam = () => {
             <div className="workarea">
                 <div className="tabAlign">
                 <div className="card">
-                      <h4 style={{position:'relative',left:'97%',bottom:'4rem'}}>10 for each correct answer <br/> -5 for each wrong answer</h4>
+                      <h4 style={{position:'relative',left:'90%',bottom:'1rem'}}>10 for each correct answer <br/> -5 for each wrong answer</h4>
                       <Card style={cardHeight} ><CardContent>
                         <div id="cardContent">
                           <div className="navbar" style={{paddingBlock:'1rem'}}><h3 style={{color:'#fff',position:'relative',left:'2rem'}} id="quesNumber"></h3></div>
@@ -225,7 +225,7 @@ export default AttendExam;
     gridTemplateColumns: "repeat(2,2fr)",
     gridGap: "3rem",
     position: "relative",
-    left: "6.5rem",
+    left: "13rem",
   };
 
 const cardHeight = {
@@ -235,6 +235,6 @@ const cardHeight = {
     letterSpacing: "2px",
     // width: "30rem",
     position:"relative",
-    right:"5%",
+    right:"15%",
     bottom: '6rem',
 }

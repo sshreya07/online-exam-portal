@@ -84,20 +84,31 @@ const Dashboard = () => {
                  </CardContent></Card> */}
                         
                     {/* // })}; */}
-                            {ExamList.map(data => (
+                            {/* {ExamList.map(data => ( */}
                                 <Card style={cardHeight} ><CardContent>
-                              <div><h4 style={{color:'#530c90', textAlign:'center'}}><strong>{data.examName}</strong></h4>
-                              course: <span style={{textAlign:'center'}}>{data.courseName}</span><br/>
-                              code: <span style={{textAlign:'center'}}>{data.courseID}</span><br/>
-                              exam date: <span style={{textAlign:'center'}}>{data.date}</span><br/>
-                              time: <span style={{textAlign:'center'}}>{data.startTime}</span><br/>
-                              duration:<span style={{textAlign:'center'}}>{data.duration}</span> <br/>
-                              marks: <span style={{textAlign:'center'}}>{data.totalMarks}</span><br/>
+                              <div><h4 style={{color:'#530c90', textAlign:'center'}}><strong>{ExamList[0].examName}</strong></h4>
+                              course: <span style={{textAlign:'center'}}>{ExamList[0].courseName}</span><br/>
+                              code: <span style={{textAlign:'center'}}>{ExamList[0].courseID}</span><br/>
+                              exam date: <span style={{textAlign:'center'}}>{ExamList[0].date}</span><br/>
+                              time: <span style={{textAlign:'center'}}>{ExamList[0].startTime}</span><br/>
+                              duration:<span style={{textAlign:'center'}}>{ExamList[0].duration}</span> <br/>
+                              marks: <span style={{textAlign:'center'}}>{ExamList[0].totalMarks}</span><br/>
                               </div><br/>
-                              <div className="createExamBtn"><Link to="/attendExam" style={{textDecoration:'none',position:'relative',top:'3rem'}}> <Button variant="contained" id={data.examID}>Attend Exam</Button></Link></div>
+                              <div className="createExamBtn"><Link to="/attendExam" style={{textDecoration:'none',position:'relative',top:'3rem'}}> <Button variant="contained" id={ExamList[0].examID}>Attend Exam</Button></Link></div>
+                        </CardContent></Card>
+                        <Card style={cardHeight} ><CardContent>
+                              <div><h4 style={{color:'#530c90', textAlign:'center'}}><strong>{ExamList[1].examName}</strong></h4>
+                              course: <span style={{textAlign:'center'}}>{ExamList[1].courseName}</span><br/>
+                              code: <span style={{textAlign:'center'}}>{ExamList[1].courseID}</span><br/>
+                              exam date: <span style={{textAlign:'center'}}>{ExamList[1].date}</span><br/>
+                              time: <span style={{textAlign:'center'}}>{ExamList[1].startTime}</span><br/>
+                              duration:<span style={{textAlign:'center'}}>{ExamList[1].duration}</span> <br/>
+                              marks: <span style={{textAlign:'center'}}>{ExamList[1].totalMarks}</span><br/>
+                              </div><br/>
+                              <div className="createExamBtn"><Link to="/attendExam2" style={{textDecoration:'none',position:'relative',top:'3rem'}}> <Button variant="contained" id={ExamList[1].examID}>Attend Exam</Button></Link></div>
                         </CardContent></Card>
 
-                            ))}
+                            {/* ))} */}
                     {/* <Card><CardContent>done</CardContent></Card>
                     <Card><CardContent>done</CardContent></Card>
                     <Card style={cardHeight}><CardContent>done</CardContent></Card>

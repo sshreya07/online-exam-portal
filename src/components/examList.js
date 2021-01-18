@@ -17,8 +17,8 @@ const ExamList = [
         duration: 20,
         date:"22-03-21",
         startTime:"11:00",
-        totalQues:3,
-        totalMarks:30,
+        totalQues:5,
+        totalMarks:50,
         examID:2
     }
 ]

@@ -76,7 +76,7 @@ const ScheduleExam = () => {
 
                 <tr><td>No of Questions</td><td><TextField id="standard-required" label="total Questions" variant="outlined" size="small" type="number" value={totalQues} onChange={event => setTotalQues(event.target.value)}/></td></tr>
 
-                <tr><td>Marks</td><td><TextField id="standard-required" label="total Marks" variant="outlined" size="small" type="number" value={totalMarks} onChange={event => setTotalMarks(event.target.value)}/></td></tr>
+                <tr><td>Marks</td><td><TextField id="standard-required" label="total Marks" variant="outlined" size="small" type="number" value={totalMarks} onChange={event => setTotalMarks(event.target.value)}/><span style={{position: 'relative', top: '1rem', left:'.5rem'}}>10 each</span></td></tr>
 
                 <span style={{position: 'relative', top: '3rem', left:'.5rem'}}><tr><td><Button type="submit" variant="outlined">Submit</Button></td></tr></span>
 
