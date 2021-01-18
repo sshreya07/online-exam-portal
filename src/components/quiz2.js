@@ -22,7 +22,7 @@ const quiz = [
     {
         q:'Meaning of vavicious ?',
         options:['unattractive','dull','exciting','sober'],
-        answer:3
+        answer:2
     }
 
 ]

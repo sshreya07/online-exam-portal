@@ -58,7 +58,7 @@ const Dashboard = () => {
             <Navbar/>
             <LeftNav/>
             <div className="workarea">
-                <div className="createExamBtn"><Link to="/createExam" style={{textDecoration:'none'}}> <Button variant="contained">Create Question Bank</Button></Link></div>
+                <div className="createExamBtn"><Link to="/exams" style={{textDecoration:'none'}}> <Button variant="contained">Create Question Bank</Button></Link></div>
                 
                 <div className="tabAlign">
                 <div style={gridGap}>
