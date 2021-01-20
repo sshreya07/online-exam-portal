@@ -25,7 +25,6 @@ const signOut = () => {
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
-    sessionStorage.clear();
   }
 
     return (

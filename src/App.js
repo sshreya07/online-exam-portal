@@ -15,6 +15,7 @@ import Contact from './components/Contact';
 import AttendExam from './components/AttendExam';
 import AttendExam2 from './components/AttendExam2';
 import NotFound from './components/NotFound';
+import Result from './components/Result';
 
 const App = () => {
   
@@ -35,6 +36,7 @@ const App = () => {
             <Route exact path="/QuesBank" component={CreateQues}/>
             <Route exact path="/attendExam" component={AttendExam}/>
             <Route exact path="/attendExam2" component={AttendExam2}/>
+            <Route exact path="/result" component={Result}/>
             <Route component={NotFound}/>
           </Switch>
         </div>

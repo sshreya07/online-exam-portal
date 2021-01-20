@@ -12,6 +12,7 @@ import Navbar from "./Navbar";
 import LeftNav from "./LeftNav";
 import ExamContext from "./context/examContext";
 import ExamList from './examList';
+import { Check } from '@material-ui/icons';
 
 const Dashboard = () => {
     const examContext = useContext(ExamContext);
@@ -24,10 +25,21 @@ const Dashboard = () => {
         // getExamList();
         // console.log(examList);
         //eslint-disable-next-line
+        Check();
         setAvailableExams();
         // getExamList();
         console.log({ExamList});
       }, []);
+
+
+      const Check = () => {
+        //   const card3 = document.getElementById('card3');
+        //   if(ExamList[2] === null){
+        //      card3.style.display = 'none';
+        //   }else{
+        //       card3.style.display = 'block';
+        //   }
+      }
 
     const setAvailableExams = () => {
         for (let index = 0; index < ExamList.length; index++) {
@@ -35,23 +47,6 @@ const Dashboard = () => {
             // console.log(availableExams);          
         }
     }
-
-    // const getExamList = () => {
-    //     const listLength = availableExams.length;
-
-    //     for (let i = 0; i < listLength; i++) {
-    //         let currentExam = availableExams[i];
-    //     document.getElementById("examname").innerHTML = currentExam.examName;
-    //     document.getElementById("coursename").innerHTML = currentExam.courseName;
-    //     document.getElementById("courseid").innerHTML = currentExam.courseID;
-    //     document.getElementById("date").innerHTML = currentExam.date;
-    //     document.getElementById("time").innerHTML = currentExam.startTime;
-    //     document.getElementById("duration").innerHTML = currentExam.duration;
-    //     document.getElementById("marks").innerHTML = currentExam.totalMarks;
-
-
-    //     }
-    // }
 
     return (
         <Fragment>
@@ -107,6 +102,17 @@ const Dashboard = () => {
                               </div><br/>
                               <div className="createExamBtn"><Link to="/attendExam2" style={{textDecoration:'none',position:'relative',top:'3rem'}}> <Button variant="contained" id={ExamList[1].examID}>Attend Exam</Button></Link></div>
                         </CardContent></Card>
+                        {/* <Card style={cardHeight} id="card3"><CardContent> */}
+                              {/* <div><h4 style={{color:'#530c90', textAlign:'center'}}><strong>{ExamList[2].examName}</strong></h4>
+                              course: <span style={{textAlign:'center'}}>{ExamList[2].courseName}</span><br/>
+                              code: <span style={{textAlign:'center'}}>{ExamList[2].courseID}</span><br/>
+                              exam date: <span style={{textAlign:'center'}}>{ExamList[2].date}</span><br/>
+                              time: <span style={{textAlign:'center'}}>{ExamList[2].startTime}</span><br/>
+                              duration:<span style={{textAlign:'center'}}>{ExamList[2].duration}</span> <br/>
+                              marks: <span style={{textAlign:'center'}}>{ExamList[2].totalMarks}</span><br/>
+                              </div><br/>
+                              <div className="createExamBtn"><Link to="/attendExam2" style={{textDecoration:'none',position:'relative',top:'3rem'}}> <Button variant="contained" id={ExamList[2].examID}>Attend Exam</Button></Link></div> */}
+                        {/* </CardContent></Card> */}
 
                             {/* ))} */}
                     {/* <Card><CardContent>done</CardContent></Card>

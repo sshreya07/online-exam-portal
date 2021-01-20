@@ -7,6 +7,7 @@ Button,
 } from '@material-ui/core';
 import Navbar from "./Navbar";
 import quiz from './question';
+import ExamList from './examList';
 
 const AttendExam = () => {
 
@@ -18,6 +19,11 @@ const AttendExam = () => {
     let score = 0;
     let count = 0;
     let percent = 0;
+    let flag =0;
+    let username = sessionStorage.getItem('name');
+    let email = sessionStorage.getItem('email');
+    let course = ExamList[0].courseName;
+    let courseId = ExamList[0].courseID;
 
     useEffect(() => {
         // getQuesList();
@@ -25,6 +31,7 @@ const AttendExam = () => {
         //eslint-disable-next-line
         setAvailableQues();
         getNewQues();
+
         // console.log(quiz);
       }, []);
 
@@ -103,6 +110,8 @@ const AttendExam = () => {
           document.getElementById("1").disabled = true;
           document.getElementById("2").disabled = true;
           document.getElementById("3").disabled = true;
+          // document.getElementById(`Q${quesCounter}`).value = availableOpt[id];
+
 
       }
 
@@ -122,6 +131,7 @@ const AttendExam = () => {
           document.getElementById("0").disabled = true;
           document.getElementById("2").disabled = true;
           document.getElementById("3").disabled = true;
+          // document.getElementById(`Q${quesCounter}`).value = availableOpt[id];
       }
 
         const getResult2 = () => {
@@ -140,6 +150,8 @@ const AttendExam = () => {
           document.getElementById("0").disabled = true;
           document.getElementById("1").disabled = true;
           document.getElementById("3").disabled = true;
+          // document.getElementById(`Q${quesCounter}`).value = availableOpt[id];
+
       }
 
       const getResult3 = () => {
@@ -158,6 +170,8 @@ const AttendExam = () => {
         document.getElementById("0").disabled = true;
         document.getElementById("1").disabled = true;
         document.getElementById("2").disabled = true;
+        // document.getElementById(`Q${quesCounter}`).value = availableOpt[id];
+
     }
 
       const Next = () => {
@@ -188,7 +202,92 @@ const AttendExam = () => {
         document.getElementById("next").style.display = 'none';
         document.getElementById("result").style.position = 'relative';
         document.getElementById("result").style.bottom = '3rem';
+        // document.getElementById("score").value = parseString(score);
 
+        // localStorage.setItem('name',JSON.stringify(username));
+        // localStorage.setItem('email',JSON.stringify(email));
+        // localStorage.setItem('course',JSON.stringify(course));
+        // localStorage.setItem('Id',JSON.stringify(courseId));
+        // localStorage.setItem('score',JSON.stringify(score));
+        storeInLocalStorage();
+        form();
+      }
+
+
+      const storeInLocalStorage = () => {
+        let names ;
+        let emails;
+        let courses ;
+        let Id ;
+        let scores ;
+
+        if(localStorage.getItem('name') === null){
+            names = [];
+        }else{
+            names = JSON.parse(localStorage.getItem('name'));
+        }
+
+        if(localStorage.getItem('email') === null){
+          emails = [];
+        }else{
+            emails = JSON.parse(localStorage.getItem('email'));
+        }
+
+        if(localStorage.getItem('course') === null){
+            courses = [];
+        }else{
+            courses = JSON.parse(localStorage.getItem('course'));
+        }
+
+        if(localStorage.getItem('courseId') === null){
+            Id = [];
+        }else{
+            Id = JSON.parse(localStorage.getItem('courseId'));
+        }
+
+        if(localStorage.getItem('score') === null){
+            scores = [];
+        }else{
+            scores = JSON.parse(localStorage.getItem('score'));
+        }
+
+        names.push(username);
+        emails.push(email);
+        courses.push(course);
+        Id.push(courseId);
+        scores.push(score);
+
+        for(let i =0;i<names.length;i++){
+          if(email === emails[i]){
+            flag = 1;
+            console.log(emails[i]);
+          }else{
+            flag = 0;
+          }
+        }
+
+        if(flag === 1){
+          console.log("already registered");
+        }else{
+          localStorage.setItem('name', JSON.stringify(names));
+            localStorage.setItem('email', JSON.stringify(emails));
+            localStorage.setItem('course', JSON.stringify(courses));
+            localStorage.setItem('courseId', JSON.stringify(Id));
+            localStorage.setItem('score', JSON.stringify(scores));
+        }
+
+      }
+
+      const form = () =>  {
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwHcTS7mYUscUdd0vlNmnLwml10ULg-7xM1GSVJIDphejLd-XU/exec'
+            const form = document.forms['google-sheet']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+                .catch(error => console.error('Error!', error.message))
+            })
       }
 
 
@@ -209,11 +308,32 @@ const AttendExam = () => {
                             <div id="result" style={{textAlign:'center'}}></div>
                             <div><Button variant="contained" onClick={Next} style={{position:'relative',top:'4rem',left:'48rem'}} id="next">Next</Button></div>
                               </div>
-                              <div id="footer"></div>
+                              <div id="footer" style={{display:'none'}}>
+                                <form name="google-sheet" method="post" autocomplete="off">
+                                <div class="form-group">
+                                            <input type="text" name="Name" class="form-control" placeholder="Your Name *" value={username} required=""/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" name="Email" class="form-control" placeholder="Your Email *" value={email} required=""/>
+                                        </div>
+                                        {/* <div class="form-group">
+                                          <input type="text" id="Q1" name="Q1" class="form-control" value={}/>
+                                        </div>
+                                        <div class="form-group">
+                                          <input type="text"  id="Q2" name="Q2" class="form-control" value={}/>
+                                        </div>
+                                        <div class="form-group">
+                                          <input type="text" id="Q3" name="Q3" class="form-control" value={}/>
+                                        </div> */}
+                                        <div class="form-group">
+                                          <input type="text" id="score" name="result" class="form-control" value={score}/>
+                                        </div>
+                                </form>
+                              </div>
                         </CardContent></Card>
-                </div>
-                </div>
-            </div>
+                      </div>
+                    </div>
+                  </div>
         </Fragment>  
     )
 }
