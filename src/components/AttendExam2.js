@@ -7,6 +7,7 @@ Button,
 } from '@material-ui/core';
 import Navbar from "./Navbar";
 import quiz from './quiz2';
+import ExamList from './examList';
 
 const AttendExam = () => {
 
@@ -18,6 +19,8 @@ const AttendExam = () => {
     let score = 0;
     let count = 0;
     let percent = 0;
+    let startTime = ExamList[1].duration;
+    let timeout = startTime * 60;
 
     useEffect(() => {
         // getQuesList();
@@ -25,6 +28,7 @@ const AttendExam = () => {
         //eslint-disable-next-line
         setAvailableQues();
         getNewQues();
+      setInterval(countDown, 1000);
         // console.log(quiz);
       }, []);
 
@@ -191,6 +195,24 @@ const AttendExam = () => {
 
       }
 
+      const countDown = () => {
+        let min = Math.floor(timeout / 60);
+        let second = timeout % 60;
+
+        second = second < 10 ? '0' + second : second;
+        
+        if(timeout==0){
+          clearInterval(timeout<=0);
+          document.getElementById('timeoutDiv').style.display = 'none';
+          document.getElementById("quesOption").style.display = 'none'; 
+          examOver();
+        }else{
+        document.getElementById('timeoutDiv').innerHTML = `${min}:${second}`;
+
+        }
+        timeout--;
+      }
+
 
     return (
         <Fragment>
@@ -198,10 +220,11 @@ const AttendExam = () => {
             <div className="workarea">
                 <div className="tabAlign">
                 <div className="card">
-                      <h4 style={{position:'relative',left:'90%',bottom:'1rem'}}>10 for each correct answer <br/> -5 for each wrong answer</h4>
+                      <h4 style={{position:'relative',left:'90%',bottom:'1rem'}}>10 for each correct answer </h4>
                       <Card style={cardHeight} ><CardContent>
                         <div id="cardContent">
-                          <div className="navbar" style={{paddingBlock:'1rem'}}><h3 style={{color:'#fff',position:'relative',left:'2rem'}} id="quesNumber"></h3></div>
+                          <div className="navbar" style={{paddingBlock:'1rem'}}><h3 style={{color:'#fff',position:'relative',left:'2rem'}} id="quesNumber"></h3>
+                          <Button style={time} variant="contained" id="timeoutDiv" disabled='true'></Button></div>
                             <div><h2 id="quesText" style={{textAlign:"center"}}></h2></div>
                             <FormControl component="fieldset" ><br/>
                                 <div id="quesOption" style={gridGapOpt} ></div>
@@ -237,4 +260,14 @@ const cardHeight = {
     position:"relative",
     right:"15%",
     bottom: '6rem',
+}
+
+const time = {
+  display:'flex',
+  float:'right',
+  alignItems:'center',
+  backgroundColor:'white',
+  color:'black',
+  padding:'0 2rem',
+  fontSize:'20px'
 }

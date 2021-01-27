@@ -3,7 +3,7 @@ const ExamList = [
         examName:"MID-SEM",
         courseName:"Maths",
         courseID:"101",
-        duration: 20,
+        duration: 10,
         date:"21-03-21",
         startTime:"11:00",
         totalQues:3,

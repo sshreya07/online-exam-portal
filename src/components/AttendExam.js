@@ -20,6 +20,8 @@ const AttendExam = () => {
     let count = 0;
     let percent = 0;
     let flag =0;
+    let startTime = ExamList[0].duration;
+    let timeout = startTime * 60;
     let username = sessionStorage.getItem('name');
     let email = sessionStorage.getItem('email');
     let course = ExamList[0].courseName;
@@ -31,9 +33,16 @@ const AttendExam = () => {
         //eslint-disable-next-line
         setAvailableQues();
         getNewQues();
+        setSessionStorage();
+        setInterval(countDown, 1000);
 
         // console.log(quiz);
       }, []);
+
+      const setSessionStorage = () =>{
+        sessionStorage.setItem('course',course);
+        sessionStorage.setItem('id',courseId);
+      }
 
       const setAvailableQues = () => {
           const totalQuestion = quiz.length;
@@ -94,6 +103,8 @@ const AttendExam = () => {
         quesCounter++;     
       }
 
+
+
       const getResult0 = () => {
           console.log(0);
           const id = 0;
@@ -103,7 +114,6 @@ const AttendExam = () => {
             score += 10;          
           }else{
             console.log("wrong");
-            score -= 5;
           }
           document.getElementById("0").style.backgroundColor = '#1f4068';
           document.getElementById("0").style.color = '#fff';
@@ -124,7 +134,6 @@ const AttendExam = () => {
             score += 10;
           }else{
             console.log("wrong");
-            score -= 5;
           }
           document.getElementById("1").style.backgroundColor = '#1f4068';
           document.getElementById("1").style.color = '#fff';
@@ -143,7 +152,6 @@ const AttendExam = () => {
             score += 10;
           }else{
             console.log("wrong");
-            score -= 5;
           }
           document.getElementById("2").style.backgroundColor = '#1f4068';
           document.getElementById("2").style.color = '#fff';
@@ -163,7 +171,6 @@ const AttendExam = () => {
           score += 10;
         }else{
           console.log("wrong");
-          score -= 5;
         }
         document.getElementById("3").style.backgroundColor = '#1f4068';
         document.getElementById("3").style.color = '#fff';
@@ -192,7 +199,8 @@ const AttendExam = () => {
       }
 
       const examOver = () => {
-        if(percent>=40||(quiz.length/count)>=((quiz.length/count)/2)){
+        if(percent>=40){
+          sessionStorage.setItem('score',score);
         document.getElementById("quesText").innerHTML = "<br/><br/>Woohoo exam DONE!<br/><br/><br/>";
         document.getElementById("result").innerHTML = "<h4> You answered <br/> <strong>" + (count) + " </strong> question(s) correct <br/><br/><br/>Your total Marks <strong>" + (score) + "</strong></h4>";
         }else{
@@ -213,6 +221,23 @@ const AttendExam = () => {
         form();
       }
 
+      const countDown = () => {
+        let min = Math.floor(timeout / 60);
+        let second = timeout % 60;
+
+        second = second < 10 ? '0' + second : second;
+        
+        if(timeout==0){
+          clearInterval(timeout<=0);
+          document.getElementById('timeoutDiv').style.display = 'none';
+          document.getElementById("quesOption").style.display = 'none'; 
+          examOver();
+        }else{
+        document.getElementById('timeoutDiv').innerHTML = `${min}:${second}`;
+
+        }
+        timeout--;
+      }
 
       const storeInLocalStorage = () => {
         let names ;
@@ -297,10 +322,11 @@ const AttendExam = () => {
             <div className="workarea">
                 <div className="tabAlign">
                 <div className="card">
-                      <h4 style={{position:'relative',left:'97%',bottom:'4rem'}}>10 for each correct answer <br/> -5 for each wrong answer</h4>
+                      <h4 style={{position:'relative',left:'97%',bottom:'4rem'}}>10 for each correct answer</h4>
                       <Card style={cardHeight} ><CardContent>
                         <div id="cardContent">
-                          <div className="navbar" style={{paddingBlock:'1rem'}}><h3 style={{color:'#fff',position:'relative',left:'2rem'}} id="quesNumber"></h3></div>
+                          <div className="navbar" style={{paddingBlock:'1rem'}}><h3 style={{color:'#fff',position:'relative',left:'2rem'}} id="quesNumber"></h3>
+                          <Button style={time} variant="contained" id="timeoutDiv" disabled='true'></Button></div>
                             <div><h2 id="quesText" style={{textAlign:"center"}}></h2></div>
                             <FormControl component="fieldset" ><br/>
                                 <div id="quesOption" style={gridGapOpt} ></div>
@@ -357,4 +383,14 @@ const cardHeight = {
     position:"relative",
     right:"5%",
     bottom: '6rem',
+}
+
+const time = {
+  display:'flex',
+  float:'right',
+  alignItems:'center',
+  backgroundColor:'white',
+  color:'black',
+  padding:'0 2rem',
+  fontSize:'20px'
 }

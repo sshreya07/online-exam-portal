@@ -12,7 +12,7 @@ import Navbar from "./Navbar";
 import LeftNav from "./LeftNav";
 import ExamContext from "./context/examContext";
 import ExamList from './examList';
-import { Check } from '@material-ui/icons';
+import examLogo from './giphy (2).gif';
 
 const Dashboard = () => {
     const examContext = useContext(ExamContext);
@@ -82,23 +82,24 @@ const Dashboard = () => {
                             {/* {ExamList.map(data => ( */}
                                 <Card style={cardHeight} ><CardContent>
                               <div><h4 style={{color:'#530c90', textAlign:'center'}}><strong>{ExamList[0].examName}</strong></h4>
-                              course: <span style={{textAlign:'center'}}>{ExamList[0].courseName}</span><br/>
-                              code: <span style={{textAlign:'center'}}>{ExamList[0].courseID}</span><br/>
-                              exam date: <span style={{textAlign:'center'}}>{ExamList[0].date}</span><br/>
-                              time: <span style={{textAlign:'center'}}>{ExamList[0].startTime}</span><br/>
-                              duration:<span style={{textAlign:'center'}}>{ExamList[0].duration}</span> <br/>
-                              marks: <span style={{textAlign:'center'}}>{ExamList[0].totalMarks}</span><br/>
+                              <div style={{display:'flex',flexDirection:'row',paddingLeft:'1rem'}}><img src={examLogo} style={{borderRadius:'100%'}} width="120px" height="80px"></img>
+                              <div style={{display:'flex',flexDirection:'column',padding:'1rem 0 0 1rem'}}><span style={{textAlign:'center',float:'right'}}>{ExamList[0].courseName}</span><span style={{textAlign:'center',float:'right'}}>{ExamList[0].courseID}</span><br/></div>
+                              </div><br></br>
+                              <small>exam date <span style={{textAlign:'center',float:'right'}}>{ExamList[0].date}</span><br/></small>
+                              <small>time <span style={{textAlign:'center',float:'right'}}>{ExamList[0].startTime}</span><br/></small>
+                              <small>duration<span style={{textAlign:'center',float:'right'}}>{ExamList[0].duration}</span> <br/></small>
+                              <small>marks <span style={{textAlign:'center',float:'right'}}>{ExamList[0].totalMarks}</span><br/></small>
                               </div><br/>
                               <div className="createExamBtn"><Link to="/attendExam" style={{textDecoration:'none',position:'relative',top:'3rem'}}> <Button variant="contained" id={ExamList[0].examID}>Attend Exam</Button></Link></div>
                         </CardContent></Card>
                         <Card style={cardHeight} ><CardContent>
                               <div><h4 style={{color:'#530c90', textAlign:'center'}}><strong>{ExamList[1].examName}</strong></h4>
-                              course: <span style={{textAlign:'center'}}>{ExamList[1].courseName}</span><br/>
-                              code: <span style={{textAlign:'center'}}>{ExamList[1].courseID}</span><br/>
-                              exam date: <span style={{textAlign:'center'}}>{ExamList[1].date}</span><br/>
-                              time: <span style={{textAlign:'center'}}>{ExamList[1].startTime}</span><br/>
-                              duration:<span style={{textAlign:'center'}}>{ExamList[1].duration}</span> <br/>
-                              marks: <span style={{textAlign:'center'}}>{ExamList[1].totalMarks}</span><br/>
+                              <div style={{display:'flex',flexDirection:'row',paddingLeft:'1rem'}}><img src={examLogo} style={{borderRadius:'100%'}} width="120px" height="80px"></img>
+                              <div style={{display:'flex',flexDirection:'column',padding:'1rem 0 0 1rem'}}><span style={{textAlign:'center',float:'right'}}>{ExamList[1].courseName}</span><span style={{textAlign:'center',float:'right'}}>{ExamList[1].courseID}</span><br/></div></div><br/>
+                              <small>exam date <span style={{textAlign:'center',float:'right'}}>{ExamList[1].date}</span><br/></small>
+                              <small>time <span style={{textAlign:'center',float:'right'}}>{ExamList[1].startTime}</span><br/></small>
+                              <small>duration<span style={{textAlign:'center',float:'right'}}>{ExamList[1].duration} min</span> <br/></small>
+                              <small>marks <span style={{textAlign:'center',float:'right'}}>{ExamList[1].totalMarks}</span><br/></small>
                               </div><br/>
                               <div className="createExamBtn"><Link to="/attendExam2" style={{textDecoration:'none',position:'relative',top:'3rem'}}> <Button variant="contained" id={ExamList[1].examID}>Attend Exam</Button></Link></div>
                         </CardContent></Card>
