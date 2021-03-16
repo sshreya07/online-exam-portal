@@ -16,7 +16,8 @@ import {
     GET_TOTALMARKS,
     GET_USERNAME,
     GET_EMAIL,
-    GET_URL
+    GET_URL,
+    STORE_STUDENT
 } from '../types';
 
 const ExamState = (props) => {
@@ -36,6 +37,7 @@ const ExamState = (props) => {
         username: '',
         email: '',
         imgUrl: '',
+        students:[],
         // // monitoring: false,
         // // negativeMarking: false,
         // questions: [],
@@ -160,6 +162,13 @@ const ExamState = (props) => {
         });
     }
 
+    const storeStudent = (ob)=>{
+        dispatch({
+            type: STORE_STUDENT,
+            payload: {ob},
+        })
+    }
+
     return (
         <ExamContext.Provider 
         value={{examType:state.examType,
@@ -176,6 +185,7 @@ const ExamState = (props) => {
         username: state.username,
         email: state.email,
         imgUrl: state.imgUrl,
+        students: state.students,
         getExamName,
         getCourseName,
         getCourseId,
@@ -189,7 +199,8 @@ const ExamState = (props) => {
         getUsername,
         getEmail,
         getImgUrl,
-        AddExam
+        AddExam,
+        storeStudent
         }}>
             {props.children}
         </ExamContext.Provider>

@@ -11,7 +11,8 @@ import {
     GET_QUESLIST,
     GET_USERNAME,
     GET_EMAIL,
-    GET_URL
+    GET_URL,
+    STORE_STUDENT
 
 } from '../types';
 
@@ -81,6 +82,11 @@ export default(state,action) => {
             return{
                 ...state,
                 imgUrl: action.payload
+            }
+        case STORE_STUDENT:
+            return{
+                ...state,
+                students: action.payload
             }
 
         default:

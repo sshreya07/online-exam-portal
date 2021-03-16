@@ -8,8 +8,14 @@ Button,
 import Navbar from "./Navbar";
 import quiz from './question';
 import ExamList from './examList';
+import ExamContext from "./context/examContext";
 
 const AttendExam = () => {
+
+  const examContext = useContext(ExamContext);
+
+  const {students} = examContext;
+  console.log(students);
 
     let availableQues = [];
     let availableOpt = [];
@@ -18,14 +24,17 @@ const AttendExam = () => {
     let currentQues = '';
     let score = 0;
     let count = 0;
+    let track = 0;
     let percent = 0;
     let flag =0;
     let startTime = ExamList[0].duration;
     let timeout = startTime * 60;
     let username = sessionStorage.getItem('name');
     let email = sessionStorage.getItem('email');
+    // let googleId = sessionStorage.getItem('googleID')
     let course = ExamList[0].courseName;
     let courseId = ExamList[0].courseID;
+    let marks = ExamList[0].totalMarks;
 
     useEffect(() => {
         // getQuesList();
@@ -184,7 +193,7 @@ const AttendExam = () => {
       const Next = () => {
         document.getElementById("quesOption").innerHTML = '';
         if(quesCounter === (quiz.length-1)){
-          percent = (score/(quiz.length*10))*100;
+          percent = (score/marks)*100;
           document.getElementById("next").innerHTML = "submit";
           document.getElementById("next").onclick = function(){
             examOver();
@@ -192,14 +201,14 @@ const AttendExam = () => {
         }
         if(quesCounter === quiz.length){
           console.log("exam over");
-          percent = (score/(quiz.length*10))*100;
+          percent = (score/marks)*100;
         }else{
           getNewQues();
         }
       }
 
       const examOver = () => {
-        if(percent>=40){
+        if(percent>=20&&percent<=100){
           sessionStorage.setItem('score',score);
         document.getElementById("quesText").innerHTML = "<br/><br/>Woohoo exam DONE!<br/><br/><br/>";
         document.getElementById("result").innerHTML = "<h4> You answered <br/> <strong>" + (count) + " </strong> question(s) correct <br/><br/><br/>Your total Marks <strong>" + (score) + "</strong></h4>";
@@ -210,6 +219,7 @@ const AttendExam = () => {
         document.getElementById("next").style.display = 'none';
         document.getElementById("result").style.position = 'relative';
         document.getElementById("result").style.bottom = '3rem';
+        document.getElementById('timeoutDiv').style.display = 'none';
         // document.getElementById("score").value = parseString(score);
 
         // localStorage.setItem('name',JSON.stringify(username));
@@ -218,7 +228,20 @@ const AttendExam = () => {
         // localStorage.setItem('Id',JSON.stringify(courseId));
         // localStorage.setItem('score',JSON.stringify(score));
         storeInLocalStorage();
-        form();
+        // form();
+        storeStudent();
+      }
+
+      const storeStudent = () => {
+        const obj = {
+          name: username,
+          email: email,
+          course: course,
+          Id: courseId,
+          score: score
+        }
+
+        examContext.storeStudent(obj);
       }
 
       const countDown = () => {
@@ -282,38 +305,54 @@ const AttendExam = () => {
         Id.push(courseId);
         scores.push(score);
 
-        for(let i =0;i<names.length;i++){
-          if(email === emails[i]){
-            flag = 1;
-            console.log(emails[i]);
-          }else{
-            flag = 0;
-          }
-        }
+        localStorage.setItem('name',JSON.stringify(username));
+        localStorage.setItem('email',JSON.stringify(email));
+        localStorage.setItem('course',JSON.stringify(course));
+        localStorage.setItem('Id',JSON.stringify(courseId));
+        localStorage.setItem('score',JSON.stringify(score));
 
-        if(flag === 1){
-          console.log("already registered");
-        }else{
-          localStorage.setItem('name', JSON.stringify(names));
-            localStorage.setItem('email', JSON.stringify(emails));
-            localStorage.setItem('course', JSON.stringify(courses));
-            localStorage.setItem('courseId', JSON.stringify(Id));
-            localStorage.setItem('score', JSON.stringify(scores));
-        }
+        // sessionStorage.setItem('name',JSON.stringify(username));
+        // sessionStorage.setItem('email',JSON.stringify(email));
+        // sessionStorage.setItem('course',JSON.stringify(course));
+        // sessionStorage.setItem('Id',JSON.stringify(courseId));
+        // sessionStorage.setItem('score',JSON.stringify(score));
+
+        // while (localStorage.getItem('email') === null) {
+        //   track++;
+        // }
+
+        // for(let i =0;i<track;i++){
+        //   if(email === emails[i]){
+        //     flag = 1;
+        //     console.log(emails[i]);
+        //   }else{
+        //     flag = 0;
+        //   }
+        // }
+
+        // if(flag === 1){
+        //   console.log("already registered");
+        // }else{
+        //   localStorage.setItem('name', JSON.stringify(names));
+        //     localStorage.setItem('email', JSON.stringify(emails));
+        //     localStorage.setItem('course', JSON.stringify(courses));
+        //     localStorage.setItem('courseId', JSON.stringify(Id));
+        //     localStorage.setItem('score', JSON.stringify(scores));
+        // }
 
       }
 
-      const form = () =>  {
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwHcTS7mYUscUdd0vlNmnLwml10ULg-7xM1GSVJIDphejLd-XU/exec'
-            const form = document.forms['google-sheet']
+      // const form = () =>  {
+      //   const scriptURL = 'https://script.google.com/macros/s/AKfycbwHcTS7mYUscUdd0vlNmnLwml10ULg-7xM1GSVJIDphejLd-XU/exec'
+      //       const form = document.forms['google-sheet']
           
-            form.addEventListener('submit', e => {
-              e.preventDefault()
-              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
-                .catch(error => console.error('Error!', error.message))
-            })
-      }
+      //       form.addEventListener('submit', e => {
+      //         e.preventDefault()
+      //         fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      //           .then(response => alert("Thanks for Contacting us..! We Will Contact You Soon..."))
+      //           .catch(error => console.error('Error!', error.message))
+      //       })
+      // }
 
 
     return (

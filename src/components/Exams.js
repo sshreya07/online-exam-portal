@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import errorImg from './401-error-unauthorized-concept-illustration_114360-1922.jpg';
 import AuthorityImg from './authority.jpg';
 import { CancelRounded } from '@material-ui/icons';
+import pwdimg from "./pwd_protected.jpg";
 
 const Exams = () => {
     const pin = 'admin@123';
@@ -31,6 +32,7 @@ const Exams = () => {
         if(pwd === pin){
             document.getElementById("img").innerHTML = `<img src=${AuthorityImg} alt='401error' width='700px' height='600px' >`;
             document.getElementById("pwd").style.display = 'none';
+            document.getElementById("img2").style.display = 'none';
             document.getElementById("img").style.display = 'flex';
             document.getElementById("img").style.justifyContent = 'center';
             document.getElementById("img").style.alignContent = 'center';
@@ -40,12 +42,14 @@ const Exams = () => {
 
 
           }else{
+            document.getElementById("img2").style.display = 'none';
               document.getElementById("pwd").style.display = 'flex';
               document.getElementById("pwd").style.justifyContent = 'center';
               document.getElementById("pwd").style.alignContent = 'center';
             document.getElementById("pwd").innerHTML = `<img src=${errorImg} alt='401error' width='700px' height='600px' >`;
-            document.getElementById("pwd").style.position = 'relative';
-            document.getElementById("pwd").style.bottom = '5rem';
+            document.getElementById("pwd").style.position = 'absolute';
+            document.getElementById("pwd").style.right = '40rem';
+            document.getElementById("pwd").style.top = '15rem';
 
           }
     }
@@ -71,6 +75,7 @@ const Exams = () => {
         <Fragment>
             <Navbar/>
             <LeftNav/>
+            <div id="img2" style={img}><img src={pwdimg} width="1200rem" height="700rem"/></div>
             <div style={block} id="pwd">
                 <Button variant="contained" type="button" onClick={handleOpen}>
                     Click to Enter Passcode
@@ -98,7 +103,17 @@ const block = {
     alignItems:'center',
     paddingBlock:'10rem',
     flexDirection:'column',
+    position:'absolute',
+    left:'50%',
+    bottom:'20rem'
 }
 const block2 = {
     display: 'none',
+}
+
+const img = {
+    opacity:'0.6',
+    position:'relative',
+    left:'1rem',
+    top:'1rem'
 }

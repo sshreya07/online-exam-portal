@@ -18,9 +18,17 @@ const AttendExam = () => {
     let currentQues = '';
     let score = 0;
     let count = 0;
+    let track = 0;
     let percent = 0;
+    let flag =0;
     let startTime = ExamList[1].duration;
     let timeout = startTime * 60;
+    let username = sessionStorage.getItem('name');
+    let email = sessionStorage.getItem('email');
+    // let googleId = sessionStorage.getItem('googleID')
+    let course = ExamList[1].courseName;
+    let courseId = ExamList[1].courseID;
+    let marks = ExamList[1].totalMarks;
 
     useEffect(() => {
         // getQuesList();
@@ -100,7 +108,6 @@ const AttendExam = () => {
             score += 10;          
           }else{
             console.log("wrong");
-            score -= 5;
           }
           document.getElementById("0").style.backgroundColor = '#1f4068';
           document.getElementById("0").style.color = '#fff';
@@ -119,7 +126,6 @@ const AttendExam = () => {
             score += 10;
           }else{
             console.log("wrong");
-            score -= 5;
           }
           document.getElementById("1").style.backgroundColor = '#1f4068';
           document.getElementById("1").style.color = '#fff';
@@ -137,7 +143,6 @@ const AttendExam = () => {
             score += 10;
           }else{
             console.log("wrong");
-            score -= 5;
           }
           document.getElementById("2").style.backgroundColor = '#1f4068';
           document.getElementById("2").style.color = '#fff';
@@ -155,7 +160,6 @@ const AttendExam = () => {
           score += 10;
         }else{
           console.log("wrong");
-          score -= 5;
         }
         document.getElementById("3").style.backgroundColor = '#1f4068';
         document.getElementById("3").style.color = '#fff';
@@ -167,7 +171,7 @@ const AttendExam = () => {
       const Next = () => {
         document.getElementById("quesOption").innerHTML = '';
         if(quesCounter === (quiz.length-1)){
-          percent = (score/(quiz.length*10))*100;
+          percent = (score/marks)*100;
           document.getElementById("next").innerHTML = "submit";
           document.getElementById("next").onclick = function(){
             examOver();
@@ -175,14 +179,15 @@ const AttendExam = () => {
         }
         if(quesCounter === quiz.length){
           console.log("exam over");
-          percent = (score/(quiz.length*10))*100;
+          percent = (score/marks)*100;
         }else{
           getNewQues();
         }
       }
 
       const examOver = () => {
-        if(percent>=40||(quiz.length/count)>=((quiz.length/count)/2)){
+        if(percent>=20&&percent<=100){
+          sessionStorage.setItem('score',score);
         document.getElementById("quesText").innerHTML = "<br/><br/>Woohoo exam DONE!<br/><br/><br/>";
         document.getElementById("result").innerHTML = "<h4> You answered <br/> <strong>" + (count) + " </strong> question(s) correct <br/><br/><br/>Your total Marks <strong>" + (score) + "</strong></h4>";
         }else{
@@ -192,6 +197,88 @@ const AttendExam = () => {
         document.getElementById("next").style.display = 'none';
         document.getElementById("result").style.position = 'relative';
         document.getElementById("result").style.bottom = '3rem';
+        document.getElementById('timeoutDiv').style.display = 'none';
+        storeInLocalStorage();
+
+      }
+
+      const storeInLocalStorage = () => {
+        let names ;
+        let emails;
+        let courses ;
+        let Id ;
+        let scores ;
+
+        if(localStorage.getItem('name') === null){
+            names = [];
+        }else{
+            names = JSON.parse(localStorage.getItem('name'));
+        }
+
+        if(localStorage.getItem('email') === null){
+          emails = [];
+        }else{
+            emails = JSON.parse(localStorage.getItem('email'));
+        }
+
+        if(localStorage.getItem('course') === null){
+            courses = [];
+        }else{
+            courses = JSON.parse(localStorage.getItem('course'));
+        }
+
+        if(localStorage.getItem('courseId') === null){
+            Id = [];
+        }else{
+            Id = JSON.parse(localStorage.getItem('courseId'));
+        }
+
+        if(localStorage.getItem('score') === null){
+            scores = [];
+        }else{
+            scores = JSON.parse(localStorage.getItem('score'));
+        }
+
+        names.push(username);
+        emails.push(email);
+        courses.push(course);
+        Id.push(courseId);
+        scores.push(score);
+
+        localStorage.setItem('name',JSON.stringify(username));
+        localStorage.setItem('email',JSON.stringify(email));
+        localStorage.setItem('course',JSON.stringify(course));
+        localStorage.setItem('Id',JSON.stringify(courseId));
+        localStorage.setItem('score',JSON.stringify(score));
+        
+        sessionStorage.setItem('name',JSON.stringify(username));
+        sessionStorage.setItem('email',JSON.stringify(email));
+        sessionStorage.setItem('course',JSON.stringify(course));
+        sessionStorage.setItem('Id',JSON.stringify(courseId));
+        sessionStorage.setItem('score',JSON.stringify(score));
+
+        // while (localStorage.getItem('email') === null) {
+        //   track++;
+        // }
+
+        // for(let i =0;i<track;i++){
+        //   if(email === emails[i]){
+        //     flag = 1;
+        //     console.log(emails[i]);
+        //   }else{
+        //     flag = 0;
+        //   }
+        // }
+
+        // if(flag === 1){
+        //   console.log("already registered");
+        // }else{
+        //   localStorage.setItem('name', JSON.stringify(names));
+        //     localStorage.setItem('email', JSON.stringify(emails));
+        //     localStorage.setItem('course', JSON.stringify(courses));
+        //     localStorage.setItem('courseId', JSON.stringify(Id));
+        //     localStorage.setItem('score', JSON.stringify(scores));
+        // }
 
       }
 

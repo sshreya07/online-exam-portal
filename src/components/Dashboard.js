@@ -86,8 +86,7 @@ const Dashboard = () => {
                               <div style={{display:'flex',flexDirection:'column',padding:'1rem 0 0 1rem'}}><span style={{textAlign:'center',float:'right'}}>{ExamList[0].courseName}</span><span style={{textAlign:'center',float:'right'}}>{ExamList[0].courseID}</span><br/></div>
                               </div><br></br>
                               <small>exam date <span style={{textAlign:'center',float:'right'}}>{ExamList[0].date}</span><br/></small>
-                              <small>time <span style={{textAlign:'center',float:'right'}}>{ExamList[0].startTime}</span><br/></small>
-                              <small>duration<span style={{textAlign:'center',float:'right'}}>{ExamList[0].duration}</span> <br/></small>
+                              <small>duration<span style={{textAlign:'center',float:'right'}}>{ExamList[0].duration} min</span> <br/></small>
                               <small>marks <span style={{textAlign:'center',float:'right'}}>{ExamList[0].totalMarks}</span><br/></small>
                               </div><br/>
                               <div className="createExamBtn"><Link to="/attendExam" style={{textDecoration:'none',position:'relative',top:'3rem'}}> <Button variant="contained" id={ExamList[0].examID}>Attend Exam</Button></Link></div>
@@ -97,7 +96,6 @@ const Dashboard = () => {
                               <div style={{display:'flex',flexDirection:'row',paddingLeft:'1rem'}}><img src={examLogo} style={{borderRadius:'100%'}} width="120px" height="80px"></img>
                               <div style={{display:'flex',flexDirection:'column',padding:'1rem 0 0 1rem'}}><span style={{textAlign:'center',float:'right'}}>{ExamList[1].courseName}</span><span style={{textAlign:'center',float:'right'}}>{ExamList[1].courseID}</span><br/></div></div><br/>
                               <small>exam date <span style={{textAlign:'center',float:'right'}}>{ExamList[1].date}</span><br/></small>
-                              <small>time <span style={{textAlign:'center',float:'right'}}>{ExamList[1].startTime}</span><br/></small>
                               <small>duration<span style={{textAlign:'center',float:'right'}}>{ExamList[1].duration} min</span> <br/></small>
                               <small>marks <span style={{textAlign:'center',float:'right'}}>{ExamList[1].totalMarks}</span><br/></small>
                               </div><br/>

@@ -1,4 +1,4 @@
-import React  from 'react';
+import React , {useEffect}  from 'react';
 import {Link} from 'react-router-dom';
 import {Button} from '@material-ui/core';
 import BackgroundImage from './iconNew.jpg';
@@ -13,9 +13,11 @@ const BoardingPage = () => {
     let name = res.profileObj.name;
     let Email = res.profileObj.email;
     let url = res.profileObj.imageUrl;
+    let ID = res.profileObj.googleId;
     sessionStorage.setItem("name",name);
     sessionStorage.setItem("email",Email);
     sessionStorage.setItem("imgUrl",url);
+    sessionStorage.setItem('googleID',ID);
     document.getElementById("start").innerHTML = "Get in " + name;
   }
 
