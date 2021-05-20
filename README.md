@@ -1,6 +1,6 @@
 ## ONLINE EXAM PORTAL
 
-![Online Exam Portal](OEP _1.PNG)
+![Online Exam Portal](OEP_1.PNG)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
