@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2989d95e.chunk.css",
+    "main.js": "/static/js/main.1f1b409d.chunk.js",
+    "main.js.map": "/static/js/main.1f1b409d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.89102714.js",
+    "runtime-main.js.map": "/static/js/runtime-main.89102714.js.map",
+    "static/js/2.19bc5c8b.chunk.js": "/static/js/2.19bc5c8b.chunk.js",
+    "static/js/2.19bc5c8b.chunk.js.map": "/static/js/2.19bc5c8b.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.ab77be7f584902e2326d1cc9f0c4951b.js": "/precache-manifest.ab77be7f584902e2326d1cc9f0c4951b.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.2989d95e.chunk.css.map": "/static/css/main.2989d95e.chunk.css.map",
+    "static/js/2.19bc5c8b.chunk.js.LICENSE.txt": "/static/js/2.19bc5c8b.chunk.js.LICENSE.txt",
+    "static/media/401-error-unauthorized-concept-illustration_114360-1922.jpg": "/static/media/401-error-unauthorized-concept-illustration_114360-1922.2dcb7630.jpg",
+    "static/media/authority.jpg": "/static/media/authority.60a37f99.jpg",
+    "static/media/backgroundNew.jpg": "/static/media/backgroundNew.ced363ef.jpg",
+    "static/media/giphy (2).gif": "/static/media/giphy (2).9e5faa85.gif",
+    "static/media/iconNew.jpg": "/static/media/iconNew.d1492b8e.jpg",
+    "static/media/logo.png": "/static/media/logo.b40b16d8.png",
+    "static/media/notfound.jpg": "/static/media/notfound.bb7c0169.jpg",
+    "static/media/pwd_protected.jpg": "/static/media/pwd_protected.604f9e7f.jpg",
+    "static/media/results.png": "/static/media/results.7af45e81.png",
+    "static/media/yogocat_animation.gif": "/static/media/yogocat_animation.be153716.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.89102714.js",
+    "static/js/2.19bc5c8b.chunk.js",
+    "static/css/main.2989d95e.chunk.css",
+    "static/js/main.1f1b409d.chunk.js"
+  ]
+}
