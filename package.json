@@ -1,6 +1,6 @@
 {
-  "hostname":"https://sshreya07.github.io/Online-Exam-Portal",
-  "name": "online-exam-portal-project",
+  "hostname":"https://sshreya07.github.io/online-exam-portal",
+  "name": "online-exam-portal",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -19,7 +19,7 @@
   },
   "scripts": {
     "predeploy":"npm run build",
-    "deploy":"gh-pages -d src", 
+    "deploy":"gh-pages -d build", 
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
